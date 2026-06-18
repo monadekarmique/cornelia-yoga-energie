@@ -62,9 +62,10 @@
   .btn--ghost:hover{background:rgba(52,39,31,.05);transform:translateY(-2px)}
 
   header{position:sticky;top:0;z-index:40;background:rgba(242,234,221,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 22px;max-width:var(--wrap);margin:0 auto}
-  .brand{font-family:var(--serif);font-weight:600;font-size:1.1rem;color:var(--forest)}
-  .brand small{display:block;font-family:var(--sans);font-weight:600;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+  .hdr{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 22px;max-width:var(--wrap);margin:0 auto}
+  .brand{font-family:var(--serif);font-weight:600;font-size:1.1rem;color:var(--forest);flex:1;min-width:0}
+  .brand small{display:block;font-family:var(--sans);font-weight:600;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:#a8542f}
+  .hdr .btn--wa{flex:none}
 
   /* Hero plein cadre */
   .hero{position:relative;color:#fff;min-height:clamp(440px,76vh,640px);display:flex;align-items:flex-end}
