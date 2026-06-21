@@ -51,6 +51,7 @@
     <div class="actions">
       <button class="btn" id="reset">↺ Réinitialiser</button>
       <button class="btn primary" id="export">⬇ Exporter la palette</button>
+      <button class="btn primary" id="apply-site" style="background:#1f8a4c">⚡ Appliquer à mon site</button>
       <textarea id="out" readonly placeholder="La palette exportée s'affiche ici…"></textarea>
     </div>
   </aside>
@@ -66,14 +67,20 @@
 
 <script>
   var ROLES = [
-    {k:'--paper',    label:'Fond',        sub:'crème de la page',         def:'#f2eadd'},
-    {k:'--oat',      label:'Sections claires', sub:'bloc « la pratique »', def:'#e8ddcc'},
-    {k:'--forest',   label:'Foncé',       sub:'hero, titres, sections sombres (+ dégradé)', def:'#34271f', dark:true},
-    {k:'--ink',      label:'Texte',       sub:'corps de texte',           def:'#3a2c22'},
-    {k:'--ink-soft', label:'Texte doux',  sub:'sous-titres, légendes',    def:'#7a6b5c'},
-    {k:'--brass',    label:'Accent',      sub:'boutons WhatsApp, labels', def:'#c1734a'},
-    {k:'--brass-2',  label:'Terracotta clair', sub:'survols, chiffres',   def:'#d99a6e'},
-    {k:'--sage',     label:'Sauge',       sub:'accents discrets',         def:'#9fa79a'}
+    {k:'--brass',          label:'Bouton WhatsApp',        sub:'fond du bouton WhatsApp + n° de cartes, prix, bordures', def:'#c1734a'},
+    {k:'--brass-2',        label:'Accent clair',           sub:'survol du bouton, citation CTA, liens footer',  def:'#d99a6e'},
+    {k:'--accent-text',    label:'Labels / eyebrows',      sub:'petits titres majuscules + citation « story »', def:'#a8542f'},
+    {k:'--hero-credential',label:'Ligne crédibilité hero', sub:'la ligne sous le bandeau du hero',              def:'#ecba7e'},
+    {k:'--paper',          label:'Fond de page',           sub:'fond clair principal',                          def:'#f2eadd'},
+    {k:'--oat',            label:'Sections claires',       sub:'fond secondaire (Accompagnement · Approche · Témoignages)', def:'#e8ddcc'},
+    {k:'--forest',         label:'Foncé principal',        sub:'hero, titres, section « Qui je suis »',         def:'#34271f', dark:true},
+    {k:'--forest-2',       label:'Foncé — footer',         sub:'fond du pied de page',                          def:'#41322a', dark:true},
+    {k:'--dark1',          label:'Dégradé CTA — bas',      sub:'bande « Faites le premier pas » (bas)',         def:'#34271f', dark:true},
+    {k:'--dark2',          label:'Dégradé CTA — haut',     sub:'bande « Faites le premier pas » (haut)',        def:'#41322a', dark:true},
+    {k:'--dark3',          label:'Foncé clair',            sub:'variante foncée plus claire',                   def:'#4e3d33', dark:true},
+    {k:'--ink',            label:'Texte',                  sub:'corps de texte',                                def:'#3a2c22'},
+    {k:'--ink-soft',       label:'Texte doux',             sub:'sous-titres, légendes, paragraphes story',      def:'#7a6b5c'},
+    {k:'--sage',           label:'Sauge',                  sub:'accents discrets',                              def:'#9fa79a'}
   ];
   var state = {};
   ROLES.forEach(function(r){ state[r.k] = r.def; });
@@ -92,11 +99,6 @@
   function applyOne(k, v){
     var root = docRoot(); if(!root) return;
     root.style.setProperty(k, v);
-    if(k === '--forest'){
-      root.style.setProperty('--dark1', v);
-      root.style.setProperty('--dark2', lighten(v, .07));
-      root.style.setProperty('--dark3', lighten(v, .14));
-    }
   }
   function applyAll(){ Object.keys(state).forEach(function(k){ applyOne(k, state[k]); }); }
 
@@ -138,8 +140,6 @@
   var toast=document.getElementById('toast');
   document.getElementById('export').addEventListener('click', function(){
     var lines = ROLES.map(function(r){ return '  '+r.k+': '+state[r.k]+';'; });
-    var f = state['--forest'];
-    lines.push('  --dark1: '+f+'; --dark2: '+lighten(f,.07)+'; --dark3: '+lighten(f,.14)+';');
     var css = ':root{\n'+lines.join('\n')+'\n}';
     document.getElementById('out').value = css;
     if(navigator.clipboard) navigator.clipboard.writeText(css).catch(function(){});
@@ -150,6 +150,19 @@
   document.getElementById('reset').addEventListener('click', function(){
     ROLES.forEach(function(r){ setRole(r.k, r.def, false); });
     document.getElementById('out').value='';
+  });
+
+  // Appliquer à mon site (live) — écrit la palette dans Supabase ; le site la relit au chargement
+  var SBK="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFvZG56dHFzYXdzb2ZpbWJzZmhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NTQ1MTEsImV4cCI6MjA5MjQzMDUxMX0.gXOfYw6BjImESFcmrmkRaPsNGkTMEuKiWovEgqMuqIs";
+  document.getElementById('apply-site').addEventListener('click', function(){
+    var pal={};
+    ROLES.forEach(function(r){ pal[r.k.replace(/^--/,'')] = state[r.k]; });
+    function flash(t){toast.textContent=t;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');toast.textContent='Palette copiée ✓';},2400);}
+    fetch("https://qodnztqsawsofimbsfhb.supabase.co/rest/v1/site_palette?on_conflict=slug",{method:"POST",
+      headers:{apikey:SBK,Authorization:"Bearer "+SBK,"Content-Type":"application/json","Prefer":"resolution=merge-duplicates"},
+      body:JSON.stringify({slug:"cornelia-althaus",palette:pal})})
+     .then(function(r){flash(r.ok?"Appliqué à ton site ✓ (recharge le site)":"Erreur "+r.status);})
+     .catch(function(){flash("Erreur réseau");});
   });
 </script>
 </body>
