@@ -111,7 +111,23 @@
   </ul>
 
   <h2>Les enregistrements du trimestre</h2>
-  <p>Les séances de Yoga Nidra du trimestre seront <strong>bientôt disponibles en audio à télécharger</strong> (paiement par TWINT). En attendant, écris-moi pour une séance en présentiel.</p>
+  <p>Les séances de Yoga Nidra du trimestre sont disponibles en <strong>audio à télécharger</strong>. Paiement et téléchargement immédiat via <strong>Payhip</strong>, ou par <strong>TWINT</strong> (je t'envoie alors le lien d'écoute).</p>
+
+  <div class="shop" id="shop">
+    <div class="rec">
+      <div>
+        <div class="t">Yoga Nidra — enregistrement du trimestre</div>
+        <div class="d">Séance guidée à écouter chez toi, allongé·e en savasana. Fichier audio à télécharger.</div>
+        <div class="twint-note">ou&nbsp; <span class="twint-badge">TWINT</span> <a id="rec-twint" href="#" target="_blank" rel="noopener">payer par TWINT</a> — je t'envoie le lien d'écoute</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <span class="p">CHF 40</span>
+        <a class="btn btn--buy" id="rec-payhip" href="#" target="_blank" rel="noopener">Acheter &amp; télécharger</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="todo" id="shop-todo" hidden>⚠️ À compléter : lien Payhip (produit ou boutique) + lien TWINT de Cornelia. Tant qu'ils ne sont pas renseignés, les boutons restent masqués.</div>
 </article>
 
 <section class="cta-band">
@@ -136,6 +152,19 @@
   var waText = "Bonjour Cornelia,%0AJe vous contacte depuis la page Yoga Nidra de votre site.%0AJe souhaiterais des informations.";
   document.getElementById('cta-wa').href = "https://wa.me/" + WA + "?text=" + waText;
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Boutique enregistrements — renseigner les 2 liens ci-dessous (Payhip + TWINT).
+  // Tant qu'un lien est vide, son bouton est masqué et la note interne s'affiche.
+  var PAYHIP_URL = ""; // ex: https://payhip.com/b/XXXXX  (produit audio) ou la boutique
+  var TWINT_URL  = ""; // ex: https://go.twint.ch/1/e/tw?tw=...  (lien TWINT de Cornelia)
+  (function(){
+    var pay = document.getElementById('rec-payhip');
+    var tw  = document.getElementById('rec-twint');
+    var todo= document.getElementById('shop-todo');
+    if (PAYHIP_URL) { pay.href = PAYHIP_URL; } else if (pay) { pay.style.display = 'none'; }
+    if (TWINT_URL)  { tw.href  = TWINT_URL;  } else if (tw)  { tw.closest('.twint-note').style.display = 'none'; }
+    if ((!PAYHIP_URL || !TWINT_URL) && todo) { todo.hidden = false; }
+  })();
 </script>
 </body>
 </html>
