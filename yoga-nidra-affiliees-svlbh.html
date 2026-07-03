@@ -130,22 +130,12 @@
     <li><span class="prix">CHF 40</span> en audio <em>— enregistrement à télécharger, à écouter chez toi</em></li>
   </ul>
 
-  <h2>La séance en audio</h2>
-  <p>Tu ne peux pas venir mardi&nbsp;? La séance est aussi disponible en <strong>audio à télécharger</strong> — à écouter allongé·e en savasana, chez toi. Paiement et téléchargement immédiat via <strong>Payhip</strong>, ou par <strong>TWINT</strong> (Cornelia t'envoie alors le lien d'écoute).</p>
-  <div class="shop" id="shop">
-    <div class="rec">
-      <div>
-        <div class="t">Yoga Nidra — enregistrement audio</div>
-        <div class="d">Séance guidée à écouter chez toi, allongé·e en savasana. Fichier audio à télécharger.</div>
-        <div class="twint-note">ou&nbsp; <span class="twint-badge">TWINT</span> <a id="rec-twint" href="#" target="_blank" rel="noopener">payer par TWINT</a> — je t'envoie le lien d'écoute</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-        <span class="p">CHF 40</span>
-        <a class="btn btn--buy" id="rec-payhip" href="#" target="_blank" rel="noopener">Acheter &amp; télécharger</a>
-      </div>
-    </div>
-  </div>
-  <div class="todo" id="shop-todo" hidden>⚠️ À compléter : lien Payhip + lien TWINT de Cornelia (repris de la page Yoga Nidra publique).</div>
+  <h2>Paiement</h2>
+  <ul class="tarifs">
+    <li><span class="prix">Présentiel</span> en <strong>cash à Cornelia</strong>, sur place à l'Atelier Turmalin.</li>
+    <li><span class="prix">Audio</span> par <span class="twint-badge">TWINT</span> à <strong>Cornelia</strong> au <strong>+41&nbsp;79&nbsp;829&nbsp;89&nbsp;86</strong> — elle t'envoie ensuite le lien d'écoute.</li>
+  </ul>
+  <p style="font-size:.92rem;color:var(--ink-soft)">Tu ne peux pas venir mardi&nbsp;? La séance existe aussi en <strong>audio à écouter chez toi</strong>, allongé·e en savasana : règle par TWINT à Cornelia et elle t'envoie l'enregistrement.</p>
 
   <div class="note">Cette page est privée : elle n'apparaît pas dans les moteurs de recherche ni dans le menu du site. Elle se partage par lien direct, entre affiliées.</div>
 </article>
@@ -172,18 +162,6 @@
   var waText = "Bonjour,%0AJe confirme ma venue à la séance de Yoga Nidra pour les affiliées SVLBH — mardi 7 juillet à 19h00, Atelier Turmalin, Morat.";
   document.getElementById('cta-wa').href = "https://wa.me/" + WA + "?text=" + waText;
   document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Boutique audio — liens à renseigner (repris de la page Yoga Nidra publique)
-  var PAYHIP_URL = "";
-  var TWINT_URL  = "";
-  (function(){
-    var pay = document.getElementById('rec-payhip');
-    var tw  = document.getElementById('rec-twint');
-    var todo= document.getElementById('shop-todo');
-    if (PAYHIP_URL) { pay.href = PAYHIP_URL; } else if (pay) { pay.style.display = 'none'; }
-    if (TWINT_URL)  { tw.href  = TWINT_URL;  } else if (tw)  { tw.closest('.twint-note').style.display = 'none'; }
-    if ((!PAYHIP_URL || !TWINT_URL) && todo) { todo.hidden = false; }
-  })();
 </script>
 </body>
 </html>
