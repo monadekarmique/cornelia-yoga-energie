@@ -67,6 +67,8 @@
   .seance-card .who strong{color:var(--brass-2)}
   .maplink{color:var(--brass-2);text-decoration:none;font-weight:600;font-size:.96rem;border-bottom:1px solid rgba(217,154,110,.5);padding-bottom:1px}
   .maplink:hover{color:var(--paper)}
+  .map{margin-top:16px;border-radius:14px;overflow:hidden;border:1px solid rgba(242,234,221,.18);box-shadow:0 6px 20px rgba(0,0,0,.25)}
+  .map iframe{display:block;width:100%;height:280px;border:0}
 
   article{max-width:680px;margin:0 auto;padding:26px 22px 20px}
   article h2{font-size:1.5rem;margin:2.2rem 0 .7rem}
@@ -112,9 +114,12 @@
       <div><dt>Date</dt><dd>Mardi 7 juillet</dd></div>
       <div><dt>Heure</dt><dd>19h00</dd></div>
       <div><dt>Lieu</dt><dd>Atelier Turmalin</dd></div>
-      <div><dt>Ville</dt><dd>Morat</dd></div>
+      <div><dt>Adresse</dt><dd>Rte de Fribourg 25, 3280 Morat</dd></div>
     </dl>
-    <p style="margin-top:14px"><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Atelier+Turmalin+Morat" target="_blank" rel="noopener">📍 Voir l'Atelier Turmalin sur Google Maps ↗</a></p>
+    <div class="map">
+      <iframe src="https://maps.google.com/maps?q=Atelier%20Turmalin%2C%20Route%20de%20Fribourg%2025%2C%203280%20Morat&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Atelier Turmalin — Rte de Fribourg 25, Morat"></iframe>
+    </div>
+    <p style="margin-top:10px"><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Atelier%20Turmalin%2C%20Route%20de%20Fribourg%2025%2C%203280%20Morat" target="_blank" rel="noopener">Ouvrir dans Google Maps →</a></p>
     <p class="who">Réservée aux <strong>consultantes SVLBH</strong> et aux <strong>thérapeutes affiliés</strong>. Places limitées — <strong>Merci de nous confirmer ta venue.</strong></p>
   </div>
 </div>
