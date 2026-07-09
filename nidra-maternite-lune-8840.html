@@ -78,7 +78,7 @@
       <span class="badge">En ce moment</span>
       <svg class="moon" viewBox="0 0 46 46" aria-hidden="true">
         <circle cx="23" cy="23" r="19" fill="#f2eadd" stroke="#c1734a" stroke-width="2.5"/>
-        <path d="M23 4 a19 19 0 0 1 0 38 a13 19 0 0 0 0 -38 Z" fill="#c1734a"/>
+        <path d="M23 4 a19 19 0 0 1 0 38 a8 19 0 0 0 0 -38 Z" fill="#c1734a"/>
       </svg>
       <h2>Lune croissante — Grandir</h2>
       <p class="theme">Le souffle dans le ventre, la vie qui prend sa place.</p>
@@ -100,7 +100,7 @@
       <span class="badge">En ce moment</span>
       <svg class="moon" viewBox="0 0 46 46" aria-hidden="true">
         <circle cx="23" cy="23" r="19" fill="#f2eadd" stroke="#c1734a" stroke-width="2.5"/>
-        <path d="M23 4 a19 19 0 0 0 0 38 a13 19 0 0 1 0 -38 Z" fill="#c1734a"/>
+        <path d="M23 4 a19 19 0 0 0 0 38 a8 19 0 0 1 0 -38 Z" fill="#c1734a"/>
       </svg>
       <h2>Lune décroissante — Alléger</h2>
       <p class="theme">Laisser partir ce qui ne t’appartient pas.</p>
@@ -136,9 +136,7 @@ document.querySelectorAll('.phase').forEach(function (sec) {
   if (entry && entry.url) {
     var a = document.createElement('audio');
     a.controls = true; a.preload = 'metadata';
-    var s = document.createElement('source');
-    s.src = entry.url; s.type = 'audio/mp4';
-    a.appendChild(s);
+    a.src = entry.url; // src direct : un <source> ajouté en JS ne déclenche pas le chargement
     slot.appendChild(a);
     if (entry.cycle) {
       var c = document.createElement('p');
