@@ -288,7 +288,10 @@
   var WA = "41798298986";
   var waText = "Bonjour Cornelia,%0AJe vous contacte depuis votre site.%0AJe souhaiterais des informations sur vos cours de Yoga de l'Énergie / Yoga Nidra.";
   var href = "https://wa.me/" + WA + "?text=" + waText;
-  ["hdr-wa","hero-wa","cours-wa","band-wa"].forEach(function(id){ var el=document.getElementById(id); if(el) el.href=href; });
+  ["hero-wa","cours-wa","band-wa"].forEach(function(id){ var el=document.getElementById(id); if(el) el.href=href; });
+  // Header « Réserver un cours privé » — message dédié (DEC Patrick 2026-07-09).
+  var waPrive = "Bonjour Cornelia,%0AJe souhaite des informations sur tes cours privés de Yoga de l'Énergie, Yoga Nidra, Yoga Maternité.";
+  var hdr = document.getElementById('hdr-wa'); if (hdr) hdr.href = "https://wa.me/" + WA + "?text=" + waPrive;
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
 </body>

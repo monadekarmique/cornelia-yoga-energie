@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" role="img" aria-label="Vesica piscis — la matrice, portail de naissance">
+  <!-- Vesica piscis : deux cercles dont l'intersection dessine la mandorle -->
+  <g fill="none" stroke="#c1734a" stroke-width="2.5">
+    <circle cx="80" cy="70" r="52" opacity="0.85"/>
+    <circle cx="120" cy="70" r="52" opacity="0.85"/>
+  </g>
+  <!-- Mandorle soulignée -->
+  <path d="M100 22.6 A52 52 0 0 1 100 117.4 A52 52 0 0 1 100 22.6 Z"
+        fill="rgba(217,154,110,0.18)" stroke="#a8542f" stroke-width="1.6"/>
+  <!-- Graine de vie au centre -->
+  <circle cx="100" cy="70" r="3.2" fill="#a8542f"/>
+</svg>
