@@ -40,6 +40,7 @@
   .phase h2{font-family:var(--serif);font-weight:600;font-size:1.18rem}
   .phase .theme{color:var(--ink-soft);font-size:.9rem;margin-top:6px;line-height:1.55}
   .phase audio{width:100%;margin-top:16px;accent-color:var(--brass)}
+  .cycle{margin-top:8px;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
   .soon{margin-top:14px;font-size:.85rem;color:var(--ink-soft);font-style:italic;
     border-top:1px dashed rgba(58,44,34,.2);padding-top:12px}
   .wa{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:13px 22px;border-radius:999px;
@@ -119,23 +120,32 @@
 <script>
 // Séances par phase — coller ici le lien signé Supabase quand Cornelia fournit l'audio.
 var AUDIOS = {
-  nouvelle: "",
-  croissante: "",
-  pleine: "",
-  decroissante: ""
+  nouvelle: null,
+  croissante: null,
+  pleine: null,
+  decroissante: {
+    cycle: "Lune de juillet 2026",
+    url: "https://qodnztqsawsofimbsfhb.supabase.co/storage/v1/object/sign/session-documents/diffusion/cornelia/nidra-maternite-dernier-croissant-juillet-2026.m4a?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV81MDIzNzFjOS0xMmVhLTQ5MTMtOTYyOC1iZTFmYjk3Y2Q1NjEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZXNzaW9uLWRvY3VtZW50cy9kaWZmdXNpb24vY29ybmVsaWEvbmlkcmEtbWF0ZXJuaXRlLWRlcm5pZXItY3JvaXNzYW50LWp1aWxsZXQtMjAyNi5tNGEiLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzgzNTk1ODAwLCJleHAiOjE3OTgyODM4MDB9.hkR-BRXNu9lkrsYsbjQCs3894Jq5U-J-Byb7HWaViiY"
+  }
 };
 
 // Slots : player si l'audio existe, sinon douce attente.
 document.querySelectorAll('.phase').forEach(function (sec) {
-  var url = AUDIOS[sec.dataset.phase];
+  var entry = AUDIOS[sec.dataset.phase];
   var slot = sec.querySelector('.slot');
-  if (url) {
+  if (entry && entry.url) {
     var a = document.createElement('audio');
     a.controls = true; a.preload = 'metadata';
     var s = document.createElement('source');
-    s.src = url; s.type = 'audio/mp4';
+    s.src = entry.url; s.type = 'audio/mp4';
     a.appendChild(s);
     slot.appendChild(a);
+    if (entry.cycle) {
+      var c = document.createElement('p');
+      c.className = 'cycle';
+      c.textContent = entry.cycle;
+      slot.appendChild(c);
+    }
   } else {
     var p = document.createElement('p');
     p.className = 'soon';
