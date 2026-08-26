@@ -15,8 +15,8 @@
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --forest:#34271f;--forest-2:#41322a;--oat:#e8ddcc;--paper:#f2eadd;--dark1:#34271f;--dark2:#41322a;--dark3:#4e3d33;
-    --ink:#3a2c22;--ink-soft:#7a6b5c;--brass:#c1734a;--brass-2:#d99a6e;--sage:#9fa79a;
+    --forest:#3B23D4;--forest-2:#60852e;--oat:#e8ddcc;--paper:#f2eadd;--dark1:#3B23D4;--dark2:#5844da;--dark3:#7665e1;
+    --ink:#3a2c22;--ink-soft:#7a6b5c;--brass:#3B23D4;--brass-2:#6653dd;--sage:#9fa79a;
     --serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif;
   }
   body{font-family:var(--sans);color:var(--paper);min-height:100svh;
@@ -102,6 +102,17 @@
     a.innerHTML = '<span class="ic">'+ICON[it.ic]+'</span><span class="tx"><b>'+it.b+'</b><small>'+it.s+'</small></span><span class="arr">›</span>';
     box.appendChild(a);
   });
+</script>
+<script>
+/* palette live — lit la palette choisie (table site_palette) + garde-fou contraste. */
+(function(){if(window.self!==window.top)return;
+var KK="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFvZG56dHFzYXdzb2ZpbWJzZmhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NTQ1MTEsImV4cCI6MjA5MjQzMDUxMX0.gXOfYw6BjImESFcmrmkRaPsNGkTMEuKiWovEgqMuqIs";
+var U="https://qodnztqsawsofimbsfhb.supabase.co/rest/v1/site_palette?slug=eq.cornelia-althaus&select=palette";
+var DV=["forest","forest-2","dark1","dark2","dark3","ink","ink-soft"];
+function lm(h){h=(h||'').replace('#','');if(h.length==3)h=h.replace(/(.)/g,'$1$1');if(h.length<6)return 1;return(parseInt(h.substr(0,2),16)*0.2126+parseInt(h.substr(2,2),16)*0.7152+parseInt(h.substr(4,2),16)*0.0722)/255;}
+function dk(h){h=h.replace('#','');if(h.length==3)h=h.replace(/(.)/g,'$1$1');return'#'+[0,2,4].map(function(i){return('0'+Math.round(parseInt(h.substr(i,2),16)*0.38).toString(16)).slice(-2);}).join('');}
+fetch(U,{headers:{apikey:KK,Authorization:"Bearer "+KK}}).then(function(r){return r.json();}).then(function(d){if(!d||!d[0]||!d[0].palette)return;var p=d[0].palette,rt=document.documentElement;Object.keys(p).forEach(function(k){if(k==='teal')return;var v=p[k];if(!v)return;if(DV.indexOf(k)>=0&&lm(v)>0.5)v=dk(v);rt.style.setProperty('--'+k,v);});}).catch(function(){});
+})();
 </script>
 </body>
 </html>

@@ -49,6 +49,9 @@
     </div>
     <div class="ctrls" id="ctrls"></div>
     <div class="actions">
+      <select id="essai-select" class="btn" style="background:#1a6a6a;color:#fff;cursor:pointer">
+        <option value="" disabled selected>🧪 Essai…</option>
+      </select>
       <button class="btn" id="reset">↺ Réinitialiser</button>
       <button class="btn primary" id="export">⬇ Exporter la palette</button>
       <button class="btn primary" id="apply-site" style="background:#1f8a4c">⚡ Appliquer à mon site</button>
@@ -60,6 +63,8 @@
     <div class="tabs">
       <button class="tab on" data-src="index.html">Vitrine</button>
       <button class="tab" data-src="bio.html">Lien bio</button>
+      <button class="tab" data-src="carte-visite.html">Carte de visite</button>
+      <button class="tab" data-src="carte-visite-projet.html">Carte de visite — projet</button>
     </div>
     <iframe id="prev" src="index.html" title="Aperçu du site"></iframe>
     <div class="toast" id="toast">Palette copiée ✓</div>
@@ -82,8 +87,15 @@
     {k:'--ink-soft',       label:'Texte doux',             sub:'sous-titres, légendes, paragraphes story',      def:'#7a6b5c'},
     {k:'--sage',           label:'Sauge',                  sub:'accents discrets',                              def:'#9fa79a'}
   ];
+  // Carte de visite imprimée — une seule couleur (logo + texte). Rendue dans sa propre
+  // section du panneau, mais fait partie du même state/export/« Appliquer à mon site »
+  // que ROLES : une seule palette Supabase (slug cornelia-althaus) pour les deux produits.
+  var CARD_ROLES = [
+    {k:'--teal', label:'Carte de visite', sub:'logo (filigrane + médaillon) et tout le texte de la carte', def:'#00AAAB'}
+  ];
+  var ALL_ROLES = ROLES.concat(CARD_ROLES);
   var state = {};
-  ROLES.forEach(function(r){ state[r.k] = r.def; });
+  ALL_ROLES.forEach(function(r){ state[r.k] = r.def; });
 
   function lighten(hex, amt){
     hex = hex.replace('#','');
@@ -91,6 +103,13 @@
     var r=parseInt(hex.slice(0,2),16),g=parseInt(hex.slice(2,4),16),b=parseInt(hex.slice(4,6),16);
     function up(x){ return Math.round(x+(255-x)*amt); }
     return '#'+[up(r),up(g),up(b)].map(function(x){return x.toString(16).padStart(2,'0');}).join('');
+  }
+  function darken(hex, amt){
+    hex = hex.replace('#','');
+    if(hex.length===3) hex = hex.split('').map(function(c){return c+c;}).join('');
+    var r=parseInt(hex.slice(0,2),16),g=parseInt(hex.slice(2,4),16),b=parseInt(hex.slice(4,6),16);
+    function dn(x){ return Math.round(x*(1-amt)); }
+    return '#'+[dn(r),dn(g),dn(b)].map(function(x){return x.toString(16).padStart(2,'0');}).join('');
   }
 
   var prev = document.getElementById('prev');
@@ -104,14 +123,24 @@
 
   // Construire les contrôles
   var box = document.getElementById('ctrls');
-  ROLES.forEach(function(r){
+  function addRow(r){
     var row = document.createElement('div'); row.className='row';
     row.innerHTML =
       '<label>'+r.label+'<small>'+r.sub+'</small></label>'+
       '<input type="color" value="'+r.def+'" data-k="'+r.k+'">'+
       '<input class="hex" type="text" value="'+r.def+'" data-hex="'+r.k+'" maxlength="7">';
     box.appendChild(row);
-  });
+  }
+  function addSectionLabel(txt){
+    var h = document.createElement('div');
+    h.textContent = txt;
+    h.style.cssText = 'padding:14px 6px 4px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)';
+    box.appendChild(h);
+  }
+  addSectionLabel('Site');
+  ROLES.forEach(addRow);
+  addSectionLabel('Carte de visite');
+  CARD_ROLES.forEach(addRow);
   function setRole(k, v, fromHex){
     v = v.toLowerCase(); state[k]=v; applyOne(k,v);
     var col = box.querySelector('input[type=color][data-k="'+k+'"]');
@@ -139,16 +168,55 @@
   // Export
   var toast=document.getElementById('toast');
   document.getElementById('export').addEventListener('click', function(){
-    var lines = ROLES.map(function(r){ return '  '+r.k+': '+state[r.k]+';'; });
+    var lines = ALL_ROLES.map(function(r){ return '  '+r.k+': '+state[r.k]+';'; });
     var css = ':root{\n'+lines.join('\n')+'\n}';
     document.getElementById('out').value = css;
     if(navigator.clipboard) navigator.clipboard.writeText(css).catch(function(){});
     toast.classList.add('show'); setTimeout(function(){toast.classList.remove('show');}, 1600);
   });
 
+  // Essais de palette (Patrick, 26.08) — un seul menu, plusieurs essais nommés.
+  // Ajouter un essai = ajouter une entrée ici, rien d'autre à toucher.
+  var cyan='#34DBDB', blue='#3B23D4', olive='#4A7411';
+  var ESSAIS = [
+    {
+      name: 'Essai 1',
+      // bleu-violet = accent/CTA (dont TOUS les n° qui partagent --brass : les étapes
+      // 01-05 ET les pastilles 1-6 des bcard) + la carte de visite (--teal) + foncé principal
+      // (--forest : hero et section « Qui je suis », sans photo). Olive = footer seul.
+      preset: {
+        '--teal':blue,
+        '--brass':blue, '--brass-2':lighten(blue,0.22), '--accent-text':blue, '--hero-credential':lighten(blue,0.60),
+        '--forest':blue, '--forest-2':lighten(olive,0.12),
+        '--dark1':blue, '--dark2':lighten(blue,0.15), '--dark3':lighten(blue,0.30)
+      }
+    },
+    {
+      name: 'Essai 2',
+      // après retour sur les n° d'étapes et le fond de page : bleu-violet = CTA/accents
+      // (dont les n° d'étapes), olive = fonds de page, cyan assombri = foncé (titres/footer/bande CTA).
+      preset: {
+        '--brass':blue, '--brass-2':lighten(blue,0.22), '--accent-text':blue, '--hero-credential':lighten(blue,0.60),
+        '--paper':olive, '--oat':lighten(olive,0.16),
+        '--forest':darken(cyan,0.68), '--forest-2':darken(cyan,0.62),
+        '--dark1':darken(cyan,0.70), '--dark2':darken(cyan,0.60), '--dark3':darken(cyan,0.50)
+      }
+    }
+  ];
+  var essaiSelect = document.getElementById('essai-select');
+  ESSAIS.forEach(function(e, i){
+    var opt = document.createElement('option');
+    opt.value = i; opt.textContent = '🧪 ' + e.name;
+    essaiSelect.appendChild(opt);
+  });
+  essaiSelect.addEventListener('change', function(){
+    var e = ESSAIS[essaiSelect.value]; if(!e) return;
+    Object.keys(e.preset).forEach(function(k){ setRole(k, e.preset[k], false); });
+  });
+
   // Reset
   document.getElementById('reset').addEventListener('click', function(){
-    ROLES.forEach(function(r){ setRole(r.k, r.def, false); });
+    ALL_ROLES.forEach(function(r){ setRole(r.k, r.def, false); });
     document.getElementById('out').value='';
   });
 
@@ -156,7 +224,7 @@
   var SBK="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFvZG56dHFzYXdzb2ZpbWJzZmhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NTQ1MTEsImV4cCI6MjA5MjQzMDUxMX0.gXOfYw6BjImESFcmrmkRaPsNGkTMEuKiWovEgqMuqIs";
   document.getElementById('apply-site').addEventListener('click', function(){
     var pal={};
-    ROLES.forEach(function(r){ pal[r.k.replace(/^--/,'')] = state[r.k]; });
+    ALL_ROLES.forEach(function(r){ pal[r.k.replace(/^--/,'')] = state[r.k]; });
     function flash(t){toast.textContent=t;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');toast.textContent='Palette copiée ✓';},2400);}
     fetch("https://qodnztqsawsofimbsfhb.supabase.co/rest/v1/site_palette?on_conflict=slug",{method:"POST",
       headers:{apikey:SBK,Authorization:"Bearer "+SBK,"Content-Type":"application/json","Prefer":"resolution=merge-duplicates"},

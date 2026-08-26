@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Carte de visite — Cornelia Althaus</title>
+<style>
+  /*
+    Morphisme EXACT de Carte_Cornelia_Althaus4-1.pdf (2 pages, 461.528 x 339.638 pt).
+    Reconstruit depuis le PDF lui-même, pas à l'œil :
+      - police Elido-Book / Elido-Bold / Elido-BoldItalic RÉ-EXTRAITE du PDF (CFF embarqué,
+        reconstruite en .otf via fontTools) — même fonte, pas un substitut.
+      - logo (grand filigrane + petit médaillon) = la forme exacte extraite du PDF (xref 36,
+        canal alpha), utilisée comme masque CSS sur un aplat --teal — même silhouette pixel
+        pour pixel, mais recolorable (suit --teal comme le texte). Seule l'opacité change
+        entre les deux usages (mesurée : 0.098 ≈ 10%).
+      - chaque bloc de texte est positionné à la coordonnée pt exacte lue dans le PDF
+        (page.get_text("dict")) — aucune estimation visuelle.
+    Tout le texte reste du vrai texte HTML : sélectionnable, éditable ici même.
+  */
+  @font-face{ font-family:'Elido Book'; src:url('carte-visite-assets/Elido-Book.otf') format('opentype'); }
+  @font-face{ font-family:'Elido Bold'; src:url('carte-visite-assets/Elido-Bold.otf') format('opentype'); font-weight:700; }
+  @font-face{ font-family:'Elido Bold Italic'; src:url('carte-visite-assets/Elido-BoldItalic.otf') format('opentype'); font-weight:700; font-style:italic; }
+
+  :root{ --teal:#3B23D4; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{ background:#ccc; padding:24px; display:flex; flex-wrap:wrap; gap:24px; justify-content:center; font-family:'Elido Book'; }
+
+  .card{
+    width: 461.528pt; height: 339.638pt;   /* = taille exacte de la page PDF (162.9 x 119.9 mm) */
+    background:#fff; position:relative; overflow:hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  }
+  .t{ position:absolute; white-space:nowrap; color:var(--teal); line-height:1; }
+
+  /* ================= RECTO ================= */
+  .logo-bg{
+    position:absolute; left:49.346pt; top:43.613pt; width:253.024pt; height:253.024pt;
+    opacity:.098; z-index:1;
+  }
+  .logo-small{
+    position:absolute; left:348.405pt; top:40.779pt; width:70.863pt; height:70.863pt; z-index:2;
+  }
+  /* Logo recolorable : la forme reste les pixels exacts extraits du PDF (canal alpha),
+     utilisés comme masque CSS sur un aplat --teal — donc suit la même couleur que le texte. */
+  .logo-shape{
+    width:100%; height:100%; background-color:var(--teal);
+    -webkit-mask-image:url('carte-visite-assets/logo-mark.png'); mask-image:url('carte-visite-assets/logo-mark.png');
+    -webkit-mask-size:contain; mask-size:contain;
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+    -webkit-mask-position:center; mask-position:center;
+  }
+
+  .recto .t{ text-align:right; right:123.048pt; z-index:2; } /* right edge = 461.528 - 338.48 */
+
+  /* ================= VERSO ================= */
+  .verso .line{ position:absolute; left:70.5pt; right:68.9pt; height:.75pt; background:var(--teal); z-index:1; }
+  .verso .t{ z-index:2; }
+  .verso .t.right{ text-align:right; }
+</style>
+</head>
+<body>
+
+  <!-- ================= RECTO ================= -->
+  <section class="card recto">
+    <div class="logo-bg"><div class="logo-shape"></div></div>
+    <div class="logo-small"><div class="logo-shape"></div></div>
+
+    <div class="t" style="top:51.39pt; font-family:'Elido Book'; font-size:21pt;">Cornelia Althaus</div>
+    <div class="t" style="top:73.92pt; font-family:'Elido Book'; font-size:12pt;">Thérapies &amp; Yoga</div>
+
+    <div class="t" style="top:101.21pt; font-family:'Elido Book'; font-size:12pt;">079 829 89 86</div>
+    <div class="t" style="top:115.61pt; font-family:'Elido Book'; font-size:12pt;">cornelia.althaus@hotmail.com</div>
+
+    <div class="t" style="top:162.25pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Cours de Yoga</div>
+    <div class="t" style="top:176.91pt; font-family:'Elido Book'; font-size:12pt;">Yoga de l&rsquo;Energie</div>
+    <div class="t" style="top:191.31pt; font-family:'Elido Book'; font-size:12pt;">Yoga Maternité - Naissance - Postnatal</div>
+
+    <div class="t" style="top:218.44pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Thérapie</div>
+    <div class="t" style="top:233.11pt; font-family:'Elido Book'; font-size:12pt;">Zero Balancing</div>
+    <div class="t" style="top:247.51pt; font-family:'Elido Book'; font-size:12pt;">Réflexologie Plantaire-Palmaire-Dorsale</div>
+    <div class="t" style="top:261.91pt; font-family:'Elido Book'; font-size:12pt;">Thérapie Viscérale</div>
+    <div class="t" style="top:276.31pt; font-family:'Elido Book'; font-size:12pt;">Reiki</div>
+  </section>
+
+  <!-- ================= VERSO ================= -->
+  <section class="card verso">
+    <div class="t" style="left:70.43pt; top:31.95pt; font-family:'Elido Bold Italic'; font-weight:700; font-style:italic; font-size:22pt;">Cours de Yoga de l&rsquo;énergie</div>
+    <div class="line" style="top:64.60pt;"></div>
+
+    <!-- Morat -->
+    <div class="t right" style="right:299.5pt; top:73.36pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Morat</div>
+    <div class="t right" style="right:299.5pt; top:88.02pt; font-family:'Elido Book'; font-size:12pt;">Atelier Turmalin</div>
+    <div class="t right" style="right:299.5pt; top:102.42pt; font-family:'Elido Book'; font-size:12pt;">Rte de Fribourg 25</div>
+
+    <div class="t" style="left:202.42pt; top:71.96pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Yoga</div>
+    <div class="t" style="left:246.42pt; top:72.22pt; font-family:'Elido Book'; font-size:12pt;">Mardi</div>
+    <div class="t" style="left:311.42pt; top:72.22pt; font-family:'Elido Book'; font-size:12pt;">19h30&nbsp;-&nbsp;21h00</div>
+
+    <div class="t" style="left:246.43pt; top:86.62pt; font-family:'Elido Book'; font-size:12pt;">Mercredi</div>
+    <div class="t" style="left:311.44pt; top:86.62pt; font-family:'Elido Book'; font-size:12pt;">08h30&nbsp;-&nbsp;10h00</div>
+
+    <div class="t" style="left:246.44pt; top:101.02pt; font-family:'Elido Book'; font-size:12pt;">Mercredi</div>
+    <div class="t" style="left:311.45pt; top:101.02pt; font-family:'Elido Book'; font-size:12pt;">12h15&nbsp;-&nbsp;13h15</div>
+
+    <div class="t" style="left:202.45pt; top:121.16pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Yoga Maternité - Naissance</div>
+
+    <div class="t" style="left:246.46pt; top:135.82pt; font-family:'Elido Book'; font-size:12pt;">Mardi</div>
+    <div class="t" style="left:311.46pt; top:135.82pt; font-family:'Elido Book'; font-size:12pt;">17h30&nbsp;-&nbsp;19h00</div>
+
+    <div class="t" style="left:246.47pt; top:150.22pt; font-family:'Elido Book'; font-size:12pt;">Mercredi</div>
+    <div class="t" style="left:311.47pt; top:150.22pt; font-family:'Elido Book'; font-size:12pt;">10h15&nbsp;-&nbsp;11h45</div>
+
+    <div class="line" style="top:171.61pt;"></div>
+
+    <!-- Avenches -->
+    <div class="t right" style="right:299.5pt; top:176.76pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Avenches</div>
+    <div class="t right" style="right:299.5pt; top:191.43pt; font-family:'Elido Book'; font-size:12pt;">Paroisse catholique</div>
+    <div class="t right" style="right:299.5pt; top:205.83pt; font-family:'Elido Book'; font-size:12pt;">Av. Jomini 8</div>
+
+    <div class="t" style="left:202.48pt; top:176.36pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Yoga</div>
+    <div class="t" style="left:246.48pt; top:176.62pt; font-family:'Elido Book'; font-size:12pt;">Mercredi</div>
+    <div class="t" style="left:311.48pt; top:176.62pt; font-family:'Elido Book'; font-size:12pt;">19h30&nbsp;-&nbsp;21h00</div>
+
+    <div class="line" style="top:225.12pt;"></div>
+
+    <!-- Payerne -->
+    <div class="t right" style="right:299.5pt; top:230.97pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Payerne</div>
+    <div class="t right" style="right:299.5pt; top:245.63pt; font-family:'Elido Book'; font-size:12pt;">Ancien Hôpital</div>
+    <div class="t right" style="right:299.5pt; top:260.03pt; font-family:'Elido Book'; font-size:12pt;">Rue du Châtelard 3</div>
+
+    <div class="t" style="left:202.49pt; top:230.56pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Yoga</div>
+    <div class="t" style="left:246.49pt; top:230.82pt; font-family:'Elido Book'; font-size:12pt;">Jeudi</div>
+    <div class="t" style="left:311.5pt; top:230.82pt; font-family:'Elido Book'; font-size:12pt;">19h30&nbsp;-&nbsp;21h00</div>
+
+    <div class="line" style="top:283.58pt;"></div>
+
+    <div class="t" style="left:70.61pt; top:291.81pt; font-family:'Elido Bold'; font-weight:700; font-size:12pt;">Cornelia Althaus <span style="font-family:'Elido Book'; font-weight:400;">&middot; Diplomée de l&rsquo;Ecole de Yoga d&rsquo;Evian</span></div>
+  </section>
+
+
+<script>
+/* palette live — même mécanisme que le site (table site_palette), une seule clé : teal. */
+(function(){if(window.self!==window.top)return;
+var KK="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFvZG56dHFzYXdzb2ZpbWJzZmhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NTQ1MTEsImV4cCI6MjA5MjQzMDUxMX0.gXOfYw6BjImESFcmrmkRaPsNGkTMEuKiWovEgqMuqIs";
+var U="https://qodnztqsawsofimbsfhb.supabase.co/rest/v1/site_palette?slug=eq.cornelia-althaus&select=palette";
+fetch(U,{headers:{apikey:KK,Authorization:"Bearer "+KK}}).then(function(r){return r.json();}).then(function(d){var t=d&&d[0]&&d[0].palette&&d[0].palette.teal;if(t)document.documentElement.style.setProperty('--teal',t);}).catch(function(){});
+})();
+</script>
+</body>
+</html>
