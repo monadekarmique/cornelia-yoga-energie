@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Carte de visite — projet — export A4</title>
+<style>
+  /* Export impression : les deux faces de carte-visite-projet.html, réunies sur une
+     feuille A4 (portrait), taille réelle, sans le bloc de vérification QR/iframe. */
+  @font-face{ font-family:'Elido Book'; src:url('carte-visite-assets/Elido-Book.otf') format('opentype'); }
+  @font-face{ font-family:'Elido Bold'; src:url('carte-visite-assets/Elido-Bold.otf') format('opentype'); font-weight:700; }
+  @font-face{ font-family:'Elido Bold Italic'; src:url('carte-visite-assets/Elido-BoldItalic.otf') format('opentype'); font-weight:700; font-style:italic; }
+
+  :root{ --teal:#3B23D4; --paper:#fff; --ink-soft:#5c8a8a; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{ background:#eee; font-family:'Elido Book'; display:flex; justify-content:center; padding:20pt 0; }
+
+  .sheet{
+    width: 210mm; min-height: 297mm; background:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+    gap: 14mm; padding-top: 20mm;
+  }
+
+  .card{
+    width: 461.528pt; height: 339.638pt;
+    background:var(--paper); position:relative; overflow:hidden;
+    outline: .5pt dashed #999; outline-offset: 6pt;
+  }
+
+  .shape{ background-color:var(--teal); }
+  .mask-logo{ -webkit-mask-image:url('carte-visite-assets/logo-mark.png'); mask-image:url('carte-visite-assets/logo-mark.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+  .mask-qr{ -webkit-mask-image:url('carte-visite-assets/qr-bio.png'); mask-image:url('carte-visite-assets/qr-bio.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+
+  /* ================= RECTO ================= */
+  .recto{ display:flex; align-items:stretch; }
+  .recto .left{ flex:1; padding:28pt 22pt; display:flex; flex-direction:column; justify-content:center; }
+  .recto .logo-small{ width:34pt; height:34pt; margin-bottom:14pt; }
+  .recto h1{ font-family:'Elido Book'; font-size:26pt; color:var(--teal); line-height:1.05; }
+  .recto .tagline{ font-family:'Elido Bold Italic'; font-weight:700; font-style:italic; font-size:12pt; color:var(--teal); margin-top:3pt; }
+  .recto .services{ margin-top:20pt; font-family:'Elido Book'; font-size:10.5pt; color:var(--ink-soft); line-height:1.7; }
+  .recto .contact{ margin-top:20pt; font-family:'Elido Book'; font-size:10pt; color:var(--teal); }
+
+  .recto .right{
+    width: 172pt; background-color: var(--teal); position:relative;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12pt;
+    padding: 20pt;
+  }
+  .recto .qr-wrap{ width:112pt; height:112pt; background:#fff; border-radius:8pt; display:flex; align-items:center; justify-content:center; }
+  .recto .qr-wrap .mask-qr{ width:92pt; height:92pt; background-color:var(--teal); }
+  .recto .cta{ font-family:'Elido Bold'; font-weight:700; font-size:11.5pt; color:#fff; text-align:center; line-height:1.25; }
+  .recto .cta small{ display:block; font-family:'Elido Book'; font-weight:400; font-size:8.5pt; color:rgba(255,255,255,.8); margin-top:3pt; }
+
+  /* ================= VERSO ================= */
+  .verso{ padding: 26pt 28pt; display:flex; flex-direction:column; }
+  .verso h2{ font-family:'Elido Bold Italic'; font-weight:700; font-style:italic; font-size:17pt; color:var(--teal); }
+  .verso .sub{ font-family:'Elido Book'; font-size:9.5pt; color:var(--ink-soft); margin-top:2pt; }
+
+  .verso .grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:16pt; margin-top:22pt; }
+  .verso .col b{ font-family:'Elido Bold'; font-weight:700; font-size:10.5pt; color:var(--teal); display:block; margin-bottom:5pt; }
+  .verso .col span{ display:block; font-family:'Elido Book'; font-size:9pt; color:var(--ink-soft); line-height:1.55; }
+
+  .verso .bottom{ margin-top:auto; padding-top:16pt; border-top:.75pt solid var(--teal); display:flex; align-items:center; justify-content:space-between; }
+  .verso .bottom .who{ font-family:'Elido Bold'; font-weight:700; font-size:10pt; color:var(--teal); }
+  .verso .bottom .who small{ display:block; font-family:'Elido Book'; font-weight:400; font-size:8.5pt; color:var(--ink-soft); margin-top:2pt; }
+  .verso .qr-small{ width:44pt; height:44pt; }
+
+  .label{ font:9pt/1 'Elido Book',sans-serif; color:#999; text-transform:uppercase; letter-spacing:.05em; }
+
+  @media print{ body{ background:#fff; padding:0; } .card{ outline: .5pt dashed #bbb; } }
+  @page{ size: A4; margin: 0; }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div>
+      <p class="label" style="margin-bottom:6pt">Recto</p>
+      <section class="card recto">
+        <div class="left">
+          <div class="logo-small shape mask-logo"></div>
+          <h1>Cornelia Althaus</h1>
+          <p class="tagline">Thérapies &amp; Yoga</p>
+          <p class="services">
+            Yoga de l&rsquo;Énergie · Yoga Nidra · Yoga Maternité<br>
+            Zero Balancing · Réflexologie · Thérapie Viscérale · Reiki
+          </p>
+          <p class="contact">079 829 89 86 &middot; Avenches &amp; Morat</p>
+        </div>
+        <div class="right">
+          <div class="qr-wrap"><div class="mask-qr"></div></div>
+          <p class="cta">Scanne pour voir les horaires<small>tous mes créneaux, à jour, en un lien</small></p>
+        </div>
+      </section>
+    </div>
+
+    <div>
+      <p class="label" style="margin-bottom:6pt">Verso</p>
+      <section class="card verso">
+        <h2>Yoga de l&rsquo;énergie Broye-Vully</h2>
+        <p class="sub">Horaires complets et réservation via le QR au recto.</p>
+
+        <div class="grid" style="grid-template-columns:1fr 1fr">
+          <div class="col">
+            <b>Morat</b>
+            <span>Atelier Turmalin<br>Mardi · Mercredi</span>
+          </div>
+          <div class="col">
+            <b>Avenches</b>
+            <span>Paroisse catholique<br>Mercredi soir</span>
+          </div>
+        </div>
+
+        <div class="grid" style="margin-top:18pt">
+          <div class="col">
+            <b>Cours</b>
+            <span>Yoga de l&rsquo;Énergie<br>Yoga Maternité<br>Yoga Nidra (audio)</span>
+          </div>
+          <div class="col">
+            <b>Thérapies</b>
+            <span>Zero Balancing<br>Réflexologie</span>
+          </div>
+          <div class="col">
+            <b>&amp; aussi</b>
+            <span>Thérapie Viscérale<br>Reiki</span>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <div class="who">Cornelia Althaus<small>Diplomée de l&rsquo;Ecole de Yoga d&rsquo;Evian<br>Le Chandon 4, 1580 Avenches</small></div>
+          <div class="qr-small shape mask-qr"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

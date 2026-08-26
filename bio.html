@@ -16,7 +16,7 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
     --forest:#3B23D4;--forest-2:#60852e;--oat:#e8ddcc;--paper:#f2eadd;--dark1:#3B23D4;--dark2:#5844da;--dark3:#7665e1;
-    --ink:#3a2c22;--ink-soft:#7a6b5c;--brass:#3B23D4;--brass-2:#6653dd;--sage:#9fa79a;
+    --ink:#3a2c22;--ink-soft:#7a6b5c;--brass:#3B23D4;--brass-2:#6653dd;--sage:#9fa79a;--hero-credential:#b1a7ee;
     --serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif;
   }
   body{font-family:var(--sans);color:var(--paper);min-height:100svh;
@@ -25,15 +25,15 @@
   .card{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;text-align:center}
   .ph{width:118px;height:118px;border-radius:50%;object-fit:cover;border:3px solid var(--brass);box-shadow:0 12px 34px -12px rgba(0,0,0,.6)}
   h1{font-family:var(--serif);font-weight:600;font-size:1.5rem;margin-top:16px}
-  .sub{color:var(--brass-2);font-weight:600;font-size:.82rem;letter-spacing:.06em;margin-top:4px}
+  .sub{color:var(--hero-credential);font-weight:600;font-size:.82rem;letter-spacing:.06em;margin-top:4px}
   .bio{color:rgba(242,234,221,.82);font-size:.96rem;margin-top:12px;line-height:1.55;max-width:34ch}
   .pills{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:14px}
-  .pill{font-size:.74rem;font-weight:600;padding:.32em .8em;border-radius:999px;background:rgba(217,154,110,.16);border:1px solid rgba(217,154,110,.34);color:var(--brass-2)}
+  .pill{font-size:.74rem;font-weight:600;padding:.32em .8em;border-radius:999px;background:color-mix(in srgb, var(--hero-credential) 16%, transparent);border:1px solid color-mix(in srgb, var(--hero-credential) 40%, transparent);color:var(--hero-credential)}
   .links{width:100%;display:flex;flex-direction:column;gap:12px;margin-top:26px}
   .lnk{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;border-radius:15px;text-decoration:none;color:var(--paper);
     background:rgba(255,255,255,.055);border:1px solid rgba(242,234,221,.15);transition:transform .18s,background .18s,border-color .18s}
   .lnk:hover{transform:translateY(-2px);background:rgba(255,255,255,.1);border-color:var(--brass)}
-  .lnk.primary{background:var(--brass);color:#fff;border-color:transparent;box-shadow:0 14px 30px -14px rgba(193,115,74,.9)}
+  .lnk.primary{background:var(--brass);color:#fff;border-color:transparent;box-shadow:0 14px 30px -14px color-mix(in srgb, var(--brass) 90%, transparent)}
   .lnk.primary:hover{background:var(--brass-2);color:#3a2418}
   .lnk .ic{width:30px;height:30px;flex:none;display:grid;place-items:center}
   .lnk .ic svg{width:24px;height:24px}

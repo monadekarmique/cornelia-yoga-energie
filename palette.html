@@ -71,27 +71,29 @@
   </main>
 
 <script>
+  // Défauts = la palette EN DUR dans index.html/bio.html aujourd'hui (Essai 1, DEC Patrick
+  // 26.08 — ancienne palette brass sauvegardée dans project_cornelia_palette_essai1.md).
   var ROLES = [
-    {k:'--brass',          label:'Bouton WhatsApp',        sub:'fond du bouton WhatsApp + n° de cartes, prix, bordures', def:'#c1734a'},
-    {k:'--brass-2',        label:'Accent clair',           sub:'survol du bouton, citation CTA, liens footer',  def:'#d99a6e'},
-    {k:'--accent-text',    label:'Labels / eyebrows',      sub:'petits titres majuscules + citation « story »', def:'#a8542f'},
-    {k:'--hero-credential',label:'Ligne crédibilité hero', sub:'la ligne sous le bandeau du hero',              def:'#ecba7e'},
-    {k:'--paper',          label:'Fond de page',           sub:'fond clair principal',                          def:'#f2eadd'},
+    {k:'--brass',          label:'Bouton WhatsApp',        sub:'fond du bouton WhatsApp + n° de cartes, prix, bordures', def:'#3B23D4'},
+    {k:'--brass-2',        label:'Accent clair',           sub:'survol du bouton, citation CTA, liens footer',  def:'#6653dd'},
+    {k:'--accent-text',    label:'Labels / eyebrows',      sub:'petits titres majuscules + citation « story »', def:'#3B23D4'},
+    {k:'--hero-credential',label:'Ligne crédibilité hero', sub:'la ligne sous le bandeau du hero + citation CTA', def:'#b1a7ee'},
+    {k:'--paper',          label:'Fond de page',           sub:'fond clair principal + footer',                def:'#f2eadd'},
     {k:'--oat',            label:'Sections claires',       sub:'fond secondaire (Accompagnement · Approche · Témoignages)', def:'#e8ddcc'},
-    {k:'--forest',         label:'Foncé principal',        sub:'hero, titres, section « Qui je suis »',         def:'#34271f', dark:true},
-    {k:'--forest-2',       label:'Foncé — footer',         sub:'fond du pied de page',                          def:'#41322a', dark:true},
-    {k:'--dark1',          label:'Dégradé CTA — bas',      sub:'bande « Faites le premier pas » (bas)',         def:'#34271f', dark:true},
-    {k:'--dark2',          label:'Dégradé CTA — haut',     sub:'bande « Faites le premier pas » (haut)',        def:'#41322a', dark:true},
-    {k:'--dark3',          label:'Foncé clair',            sub:'variante foncée plus claire',                   def:'#4e3d33', dark:true},
+    {k:'--forest',         label:'Foncé principal',        sub:'hero, titres, section « Qui je suis »',         def:'#3B23D4', dark:true},
+    {k:'--forest-2',       label:'Foncé — inutilisée',     sub:'plus câblée nulle part depuis que le footer est passé en clair (--paper)', def:'#60852e', dark:true},
+    {k:'--dark1',          label:'Dégradé CTA — bas',      sub:'bande « Viens respirer » (bas)',                def:'#3B23D4', dark:true},
+    {k:'--dark2',          label:'Dégradé CTA — haut',     sub:'bande « Viens respirer » (haut)',               def:'#5844da', dark:true},
+    {k:'--dark3',          label:'Foncé clair',            sub:'variante foncée plus claire',                   def:'#7665e1', dark:true},
     {k:'--ink',            label:'Texte',                  sub:'corps de texte',                                def:'#3a2c22'},
-    {k:'--ink-soft',       label:'Texte doux',             sub:'sous-titres, légendes, paragraphes story',      def:'#7a6b5c'},
+    {k:'--ink-soft',       label:'Texte doux',             sub:'sous-titres, légendes, paragraphes story, footer', def:'#7a6b5c'},
     {k:'--sage',           label:'Sauge',                  sub:'accents discrets',                              def:'#9fa79a'}
   ];
   // Carte de visite imprimée — une seule couleur (logo + texte). Rendue dans sa propre
   // section du panneau, mais fait partie du même state/export/« Appliquer à mon site »
   // que ROLES : une seule palette Supabase (slug cornelia-althaus) pour les deux produits.
   var CARD_ROLES = [
-    {k:'--teal', label:'Carte de visite', sub:'logo (filigrane + médaillon) et tout le texte de la carte', def:'#00AAAB'}
+    {k:'--teal', label:'Carte de visite', sub:'logo (filigrane + médaillon) et tout le texte de la carte', def:'#3B23D4'}
   ];
   var ALL_ROLES = ROLES.concat(CARD_ROLES);
   var state = {};
