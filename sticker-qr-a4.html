@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Stickers QR — planche A4 (4 cartes A6 portrait à découper)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal:#3B23D4; --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  body{ background:#ccc; padding:24px; display:flex; justify-content:center; font-family:var(--sans); }
+
+  /* Planche A4 (210x297mm) = exactement 4 cartes A6 portrait (105x148mm),
+     2 colonnes x 2 lignes, sans marge de perte. Chaque carte a son propre
+     retrait interne (padding + cadre pointillé) pour anticiper une impression
+     "sans bordure" et une découpe pas totalement millimétrée. */
+  .sheet{
+    width: 595.276pt; height: 841.89pt; /* A4 210x297mm */
+    background:#fff; position:relative; overflow:hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+  }
+
+  .mask-logo{ -webkit-mask-image:url('carte-visite-assets/logo-mark.png'); mask-image:url('carte-visite-assets/logo-mark.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+  .mask-qr{ -webkit-mask-image:url('carte-visite-assets/qr-bio.png'); mask-image:url('carte-visite-assets/qr-bio.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+
+  .card{
+    position:relative; background:var(--teal);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20pt;
+    padding:30pt;
+  }
+  .card::before{ content:''; position:absolute; inset:12pt; outline:.75pt dashed rgba(255,255,255,.4); outline-offset:0; pointer-events:none; }
+  .card .logo{ width:30pt; height:30pt; background-color:#fff; }
+  .card .qr-wrap{ width:184pt; height:184pt; background:#fff; border-radius:14pt; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .card .qr-wrap .mask-qr{ width:154pt; height:154pt; background-color:var(--teal); }
+  .card .cta{ font-family:var(--serif); font-weight:700; font-size:19pt; line-height:1.2; color:#fff; text-align:center; }
+  .card .sub{ font-family:var(--sans); font-weight:500; font-size:11pt; color:rgba(255,255,255,.82); text-align:center; margin-top:8pt; }
+
+  @media print{ body{ background:#fff; padding:0; } .sheet{ box-shadow:none; } }
+  @page{ size: A4; margin:0; }
+</style>
+</head>
+<body>
+
+  <section class="sheet">
+    <div class="card">
+      <div class="logo mask-logo"></div>
+      <div class="qr-wrap"><div class="mask-qr"></div></div>
+      <div>
+        <p class="cta">Scanne pour d&eacute;couvrir mon site</p>
+        <p class="sub">cours, horaires et contact, en un lien</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="logo mask-logo"></div>
+      <div class="qr-wrap"><div class="mask-qr"></div></div>
+      <div>
+        <p class="cta">Scanne pour d&eacute;couvrir mon site</p>
+        <p class="sub">cours, horaires et contact, en un lien</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="logo mask-logo"></div>
+      <div class="qr-wrap"><div class="mask-qr"></div></div>
+      <div>
+        <p class="cta">Scanne pour d&eacute;couvrir mon site</p>
+        <p class="sub">cours, horaires et contact, en un lien</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="logo mask-logo"></div>
+      <div class="qr-wrap"><div class="mask-qr"></div></div>
+      <div>
+        <p class="cta">Scanne pour d&eacute;couvrir mon site</p>
+        <p class="sub">cours, horaires et contact, en un lien</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

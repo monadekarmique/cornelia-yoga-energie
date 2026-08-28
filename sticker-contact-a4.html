@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Stickers contact — planche A4 (4 cartes A6 portrait à découper)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal:#3B23D4; --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  body{ background:#ccc; padding:24px; display:flex; justify-content:center; font-family:var(--sans); }
+
+  .sheet{
+    width: 595.276pt; height: 841.89pt; /* A4 210x297mm */
+    background:#fff; position:relative; overflow:hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+  }
+
+  .mask-logo{ -webkit-mask-image:url('carte-visite-assets/logo-mark.png'); mask-image:url('carte-visite-assets/logo-mark.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+  .mask-qr{ -webkit-mask-image:url('carte-visite-assets/qr-bio.png'); mask-image:url('carte-visite-assets/qr-bio.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+
+  .card{
+    position:relative; background:var(--teal);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18pt;
+    padding:28pt;
+  }
+  .card::before{ content:''; position:absolute; inset:12pt; outline:.75pt dashed rgba(255,255,255,.4); outline-offset:0; pointer-events:none; }
+
+  .card .who{ display:flex; align-items:center; gap:10pt; }
+  .card .logo{ width:26pt; height:26pt; background-color:#fff; flex-shrink:0; }
+  .card .who .txt{ text-align:left; }
+  .card .name{ font-family:var(--serif); font-weight:700; font-size:16pt; color:#fff; }
+  .card .tagline{ font-family:var(--sans); font-weight:600; font-size:8pt; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.78); margin-top:1pt; }
+
+  .card .qr-wrap{ width:150pt; height:150pt; background:#fff; border-radius:12pt; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .card .qr-wrap .mask-qr{ width:126pt; height:126pt; background-color:var(--teal); }
+  .card .scan-cap{ font-family:var(--sans); font-weight:600; font-size:9.5pt; color:rgba(255,255,255,.82); text-align:center; margin-top:-8pt; }
+
+  .card .tel{ font-family:var(--sans); font-weight:800; font-size:26pt; letter-spacing:.02em; color:#fff; text-align:center; }
+  .card .site{ font-family:var(--sans); font-weight:500; font-size:9.5pt; color:rgba(255,255,255,.7); text-align:center; margin-top:-8pt; }
+
+  @media print{ body{ background:#fff; padding:0; } .sheet{ box-shadow:none; } }
+  @page{ size: A4; margin:0; }
+</style>
+</head>
+<body>
+
+  <section class="sheet">
+    <div class="card">
+      <div class="who">
+        <div class="logo mask-logo"></div>
+        <div class="txt"><p class="name">Cornelia Althaus</p><p class="tagline">Th&eacute;rapies &amp; Yoga</p></div>
+      </div>
+      <div class="qr-wrap"><div class="mask-qr"></div></div>
+      <p class="scan-cap">Scanne pour voir mon site</p>
+      <p class="tel">079 829 89 86</p>
+      <p class="site">corneliaenseignanteyogaavenches.com</p>
+    </div>
+    <div class="card">
+      <div class="who">
+        <div class="logo mask-logo"></div>
+        <div class="txt"><p class="name">Cornelia Althaus</p><p class="tagline">Th&eacute;rapies &amp; Yoga</p></div>
+      </div>
+      <div class="qr-wrap"><div class="mask-qr"></div></div>
+      <p class="scan-cap">Scanne pour voir mon site</p>
+      <p class="tel">079 829 89 86</p>
+      <p class="site">corneliaenseignanteyogaavenches.com</p>
+    </div>
+    <div class="card">
+      <div class="who">
+        <div class="logo mask-logo"></div>
+        <div class="txt"><p class="name">Cornelia Althaus</p><p class="tagline">Th&eacute;rapies &amp; Yoga</p></div>
+      </div>
+      <div class="qr-wrap"><div class="mask-qr"></div></div>
+      <p class="scan-cap">Scanne pour voir mon site</p>
+      <p class="tel">079 829 89 86</p>
+      <p class="site">corneliaenseignanteyogaavenches.com</p>
+    </div>
+    <div class="card">
+      <div class="who">
+        <div class="logo mask-logo"></div>
+        <div class="txt"><p class="name">Cornelia Althaus</p><p class="tagline">Th&eacute;rapies &amp; Yoga</p></div>
+      </div>
+      <div class="qr-wrap"><div class="mask-qr"></div></div>
+      <p class="scan-cap">Scanne pour voir mon site</p>
+      <p class="tel">079 829 89 86</p>
+      <p class="site">corneliaenseignanteyogaavenches.com</p>
+    </div>
+  </section>
+
+</body>
+</html>
