@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Cornelia Althaus — Papier à lettre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal:#3B23D4; --ink:#3a2c22; --ink-soft:#7a6b5c; --line:rgba(59,35,212,.18);
+    --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  body{ background:#ccc; padding:24px; display:flex; justify-content:center; font-family:var(--sans); }
+
+  .page{
+    width: 595.276pt; height: 841.89pt; /* A4 210x297mm */
+    background:#fff; position:relative; overflow:hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    padding: 46pt 50pt;
+    display:flex; flex-direction:column;
+  }
+
+  .mask-logo{ -webkit-mask-image:url('carte-visite-assets/logo-mark.png'); mask-image:url('carte-visite-assets/logo-mark.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+
+  header{ display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:20pt; border-bottom:1pt solid var(--line); flex-shrink:0; }
+  .addr{ font-size:9.5pt; line-height:1.6; color:var(--ink-soft); }
+  .brand{ display:flex; align-items:center; gap:12pt; }
+  .brand .txt{ text-align:right; }
+  .brand .name{ font-family:var(--serif); font-weight:700; font-size:20pt; color:var(--teal); }
+  .brand .tagline{ font-family:var(--sans); font-weight:600; font-size:9.5pt; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-top:2pt; }
+  .brand .logo{ width:44pt; height:44pt; background-color:var(--teal); flex-shrink:0; }
+
+  .body{ flex:1; padding-top:34pt; }
+  h1{ font-family:var(--serif); font-weight:700; font-size:19pt; color:var(--ink); }
+
+  .content-row{ display:grid; grid-template-columns:1fr auto; gap:40pt; align-items:end; margin-top:26pt; }
+  .months{ display:flex; flex-direction:column; gap:16pt; }
+  .month b{ font-family:var(--sans); font-weight:700; font-size:11.5pt; color:var(--teal); display:block; margin-bottom:5pt; }
+  .month .dates{ font-family:var(--sans); font-size:12pt; color:var(--ink); letter-spacing:.02em; }
+  .month .dates .hl{ color:#c0392b; font-weight:700; }
+
+  .amount{ font-family:var(--serif); font-weight:700; font-size:16pt; color:var(--teal); white-space:nowrap; }
+  .note{ margin-top:18pt; font-family:var(--sans); font-size:10.5pt; color:var(--ink-soft); font-style:italic; }
+  .iban{ margin-top:10pt; font-family:var(--sans); font-weight:700; font-size:12.5pt; color:var(--ink); letter-spacing:.03em; }
+
+  footer{ flex-shrink:0; display:flex; justify-content:flex-end; padding-top:20pt; border-top:1pt solid var(--line); }
+  footer .col{ text-align:right; margin-left:34pt; }
+  footer .col b{ font-family:var(--sans); font-weight:700; font-size:9.5pt; color:var(--teal); display:block; margin-bottom:3pt; }
+  footer .col span{ display:block; font-family:var(--sans); font-size:8.8pt; color:var(--ink-soft); line-height:1.5; }
+
+  @media print{ body{ background:#fff; padding:0; } .page{ box-shadow:none; } }
+  @page{ size: A4; margin:0; }
+</style>
+</head>
+<body>
+
+  <section class="page">
+    <header>
+      <div class="addr">Le Chandon 4<br>1580 Avenches<br>079 829 89 86<br>cornelia.althaus@hotmail.com</div>
+      <div class="brand">
+        <div class="txt">
+          <p class="name">Cornelia Althaus</p>
+          <p class="tagline">Thérapies &amp; Yoga</p>
+        </div>
+        <div class="logo mask-logo"></div>
+      </div>
+    </header>
+
+    <div class="body"></div>
+
+    <footer>
+      <div class="col">
+        <b>Cours de Yoga</b>
+        <span>Yoga de l&rsquo;&Eacute;nergie<br>Yoga Maternit&eacute; - Naissance - Postnatal</span>
+      </div>
+      <div class="col">
+        <b>Th&eacute;rapie</b>
+        <span>R&eacute;flexologie Plantaire<br>R&eacute;flexologie du Dos<br>Z&eacute;ro Balancing<br>Reiki</span>
+      </div>
+    </footer>
+  </section>
+
+</body>
+</html>
