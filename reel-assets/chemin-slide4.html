@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{ width:1080px; height:1920px; overflow:hidden; }
+  :root{
+    --teal:#3B23D4; --paper:#f2eadd; --ink:#3a2c22;
+    --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  .frame{ width:1080px; height:1920px; position:relative; background:#333; font-family:var(--sans); }
+  .frame img.bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 35%; }
+  .shade{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,40,50,.10) 0%, rgba(20,40,50,.20) 45%, rgba(15,30,45,.80) 100%); }
+
+  .brandmark{ position:absolute; top:74px; left:64px; width:64px; height:64px;
+    -webkit-mask-image:url('../carte-visite-assets/logo-mark.png'); mask-image:url('../carte-visite-assets/logo-mark.png');
+    -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center;
+    background-color:#fff; }
+
+  .portrait{ position:absolute; top:320px; left:50%; transform:translateX(-50%);
+    width:230px; height:230px; border-radius:50%; object-fit:cover; object-position:center 20%;
+    border:6px solid #fff; box-shadow:0 12px 40px rgba(0,0,0,.35); }
+
+  .content{ position:absolute; left:0; right:0; bottom:150px; padding:0 76px; }
+  .eyebrow{ font-weight:800; font-size:32px; letter-spacing:.14em; text-transform:uppercase; color:#ffe9b3; }
+  h1{ font-family:var(--serif); font-weight:700; font-size:88px; line-height:1.08; color:#fff; margin-top:18px; }
+  .sub{ font-family:var(--sans); font-weight:500; font-size:38px; line-height:1.42; color:rgba(255,255,255,.92); margin-top:26px; max-width:19ch; }
+
+  .tel{ font-family:var(--sans); font-weight:800; font-size:76px; letter-spacing:.01em; color:#fff; margin-top:40px; }
+  .cta-sub{ font-family:var(--sans); font-weight:600; font-size:34px; color:rgba(255,255,255,.88); margin-top:16px; }
+  .site{ font-family:var(--sans); font-weight:600; font-size:30px; color:rgba(255,255,255,.72); margin-top:64px; }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <img class="bg" src="../assets/lotus-matrice.jpg">
+    <div class="shade"></div>
+    <div class="brandmark"></div>
+    <img class="portrait" src="../assets/portrait.jpg" alt="Cornelia Althaus">
+    <div class="content">
+      <p class="eyebrow">3 &mdash; Le point d&rsquo;orgue de la saison</p><h1>Yoga Nidra</h1><p class="sub">Lib&eacute;rer les &eacute;tats de conscience, accueillir le nouveau.</p>
+    </div>
+  </div>
+</body>
+</html>
