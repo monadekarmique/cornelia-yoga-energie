@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Horaires — Cornelia Althaus · Avenches & Morat</title>
-<meta name="description" content="Tous les horaires de Cornelia Althaus en un coup d'œil : Yoga de l'Énergie, Yoga Maternité et Yoga Nidra, à Avenches et Morat." />
-<link rel="canonical" href="https://corneliaenseignanteyogaavenches.com/horaires.html" />
-<meta name="theme-color" content="#34271f" />
+<title>Yoga doux pour les plus âgés — Cornelia Althaus · Avenches & Morat</title>
+<meta name="description" content="Yoga doux pour les plus âgés avec Cornelia Althaus, à Avenches et Morat : en douceur, à son rythme, sans souplesse requise. Le cours débute dès 5 participant·e·s inscrit·e·s. Mercredi à Morat, mercredi à Avenches." />
+<link rel="canonical" href="https://corneliaenseignanteyogaavenches.com/yoga-aines.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Yoga doux pour les plus âgés — Cornelia Althaus" />
+<meta property="og:description" content="En douceur, à ton rythme. À Avenches & Morat, dès 5 participant·e·s." />
+<meta property="og:image" content="https://corneliaenseignanteyogaavenches.com/carte-visite-assets/photo-flyer-aines.jpg" />
+<meta name="theme-color" content="#3B23D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -20,6 +24,7 @@
   body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.68;-webkit-font-smoothing:antialiased;font-size:17px}
   h1,h2{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.01em;color:var(--forest)}
   a{color:var(--brass)}
+  img{display:block;max-width:100%}
   .btn{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:1rem;padding:.95em 1.5em;border-radius:999px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s}
   .btn svg{width:20px;height:20px}
   .btn--wa{background:var(--brass);color:#fff;box-shadow:0 14px 30px -14px color-mix(in srgb, var(--brass) 90%, transparent)}
@@ -36,9 +41,18 @@
   .eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--brass)}
   .hero h1{font-size:clamp(2rem,5vw,3rem);margin:.5rem 0 .3rem}
   .hero .lead{color:var(--ink-soft);font-size:1.18rem}
+  .cover{max-width:760px;margin:26px auto;padding:0 22px}
+  .cover img{width:100%;border-radius:16px;border:1px solid var(--line);max-height:440px;object-fit:cover;object-position:center 20%}
 
   article{max-width:680px;margin:0 auto;padding:8px 22px 20px}
-  article h2{font-size:1.4rem;margin:2.2rem 0 .7rem}
+  article h2{font-size:1.5rem;margin:2.2rem 0 .7rem}
+  article p{margin:0 0 1.15rem}
+  .note{font-size:.92rem;font-style:italic;color:var(--ink-soft);background:var(--oat);border-radius:12px;padding:14px 18px;margin-top:1.6rem}
+
+  /* Rappel du seuil d'ouverture — mis en avant */
+  .seuil{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:12px;padding:18px 20px;margin:1.4rem 0;display:flex;gap:14px;align-items:flex-start}
+  .seuil .n{font-family:var(--serif);font-weight:700;font-size:1.8rem;color:var(--brass);flex-shrink:0}
+  .seuil p{margin:0;color:var(--ink)}
 
   /* Horaires */
   .horaires{list-style:none;display:flex;flex-direction:column;gap:12px;margin:1rem 0 1.2rem}
@@ -46,18 +60,8 @@
   .horaires .quand{font-family:var(--serif);font-weight:700;font-size:1.12rem;color:var(--forest)}
   .horaires .ou{display:block;color:var(--ink-soft);margin-top:2px;font-size:.92rem}
   .horaires .lieu{text-align:right;color:var(--ink-soft);font-size:.92rem}
-  .note{font-size:.92rem;font-style:italic;color:var(--ink-soft);background:var(--oat);border-radius:12px;padding:14px 18px;margin-top:.4rem}
-  .note a{color:var(--brass);font-weight:600}
-
-  .horaires details{flex-basis:100%;margin-top:6px}
-  .horaires summary{cursor:pointer;list-style:none;font-weight:600;font-size:.86rem;color:var(--brass)}
-  .horaires summary::-webkit-details-marker{display:none}
-  .horaires summary::before{content:'▸ ';font-size:.8rem}
-  .horaires details[open] summary::before{content:'▾ '}
-  .dates-months{margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;font-size:.86rem;color:var(--ink-soft)}
-  .dates-months b{display:block;color:var(--ink);font-weight:700;margin-bottom:2px}
-  .price-line{margin-top:10px;font-family:var(--serif);font-weight:700;color:var(--forest)}
-  .iban-line{margin-top:2px;font-size:.82rem;color:var(--ink-soft)}
+  .map{margin:1rem 0 .6rem;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .map iframe{display:block;width:100%;height:300px;border:0}
 
   .cta-band{background:linear-gradient(168deg,var(--dark2),var(--dark1));color:var(--paper);text-align:center;margin-top:40px;padding:clamp(44px,7vw,72px) 22px}
   .cta-band h2{color:var(--paper);font-size:clamp(1.6rem,3.4vw,2.2rem)}
@@ -81,78 +85,54 @@
 </header>
 
 <div class="hero">
-  <p class="eyebrow">En un coup d'œil</p>
-  <h1>Les horaires</h1>
-  <p class="lead">Tous les cours réguliers, une seule page — à Avenches &amp; Morat.</p>
+  <p class="eyebrow">Les cours</p>
+  <h1>Yoga doux pour les plus âgés</h1>
+  <p class="lead">En douceur, à ton rythme — à Avenches &amp; Morat.</p>
+</div>
+
+<div class="cover">
+  <img src="carte-visite-assets/photo-flyer-aines.jpg" alt="Cornelia Althaus, souriante" />
 </div>
 
 <article>
-  <h2>Yoga de l'Énergie</h2>
-  <ul class="horaires">
-    <li>
-      <span><span class="quand">Mardi · 19h30</span><span class="ou">90 minutes</span></span>
-      <span class="lieu">Morat<br>Atelier Turmalin</span>
-      <details>
-        <summary>Voir toutes les dates &amp; le tarif</summary>
-        <div class="dates-months">
-          <div><b>Septembre 2026</b>1, 8, 15, 22, 29</div>
-          <div><b>Octobre</b>6, 13, 20, 27</div>
-          <div><b>Novembre</b>3, 10, 17, 24</div>
-          <div><b>Décembre</b>1, 8, 15, 22, 29</div>
-          <div><b>Janvier 2027</b>5, 12, 19, 26</div>
-        </div>
-        <p class="price-line">18 × 30.– = 540.–</p>
-        <p class="iban-line">Pas de remboursement en cas de désistement · IBAN CH69 0076 7000 L536 4601 8</p>
-        <p class="iban-line"><a href="lettre-cours-mardi.html" target="_blank" rel="noopener">Feuille de cours à imprimer →</a></p>
-      </details>
-    </li>
-    <li>
-      <span><span class="quand">Mercredi · 19h30</span><span class="ou">90 minutes</span></span>
-      <span class="lieu">Avenches<br>Paroisse catholique</span>
-      <details>
-        <summary>Voir toutes les dates &amp; le tarif</summary>
-        <div class="dates-months">
-          <div><b>Septembre 2026</b>2, 9, 16, 23, 30</div>
-          <div><b>Octobre</b>7, 14, 21, 28</div>
-          <div><b>Novembre</b>4, 11, 18, 25</div>
-          <div><b>Décembre</b>2, 9, 16, 23, 30</div>
-          <div><b>Janvier 2027</b>6, 13, 20, 27</div>
-        </div>
-        <p class="price-line">18 × 30.– = 540.–</p>
-        <p class="iban-line">Pas de remboursement en cas de désistement · IBAN CH69 0076 7000 L536 4601 8</p>
-        <p class="iban-line"><a href="lettre-cours-mercredi.html" target="_blank" rel="noopener">Feuille de cours à imprimer →</a></p>
-      </details>
-    </li>
-  </ul>
+  <h2>La pratique</h2>
+  <p>Un yoga <strong>doux et accessible à tous niveaux</strong> — on vient comme on est, assis ou debout, à son propre rythme. Aucune souplesse requise, aucune expérience préalable nécessaire. L'accent est mis sur la respiration, la mobilité en douceur et l'écoute du corps, dans une ambiance chaleureuse et bienveillante.</p>
 
-  <h2>Yoga Maternité</h2>
-  <ul class="horaires">
-    <li>
-      <span><span class="quand">Mardi · 17h30 – 19h00</span><span class="ou">grossesse &amp; postnatal</span></span>
-      <span class="lieu">Morat<br>Atelier Turmalin</span>
-    </li>
-  </ul>
+  <div class="seuil">
+    <span class="n">5</span>
+    <p>Le cours débute dès que <strong>5 participant·e·s</strong> sont inscrit·e·s sur un créneau. Écris à Cornelia pour t'inscrire — dès que le seuil est atteint, le cours démarre.</p>
+  </div>
 
-  <h2>Yoga doux pour les plus âgés</h2>
+  <h2>Horaires &amp; lieux</h2>
   <ul class="horaires">
     <li>
       <span><span class="quand">Mercredi · 9h30 – 11h00</span></span>
-      <span class="lieu">Morat<br>Atelier Turmalin</span>
+      <span class="lieu">Morat<br>Atelier Turmalin, Rte de Fribourg 25</span>
     </li>
     <li>
       <span><span class="quand">Mercredi · 17h30 – 19h00</span></span>
       <span class="lieu">Avenches<br>Salle de la Paroisse catholique</span>
     </li>
   </ul>
-  <p class="note">Nouveau — le cours débute dès que <strong>5 participant·e·s</strong> sont inscrit·e·s sur un créneau. <a href="yoga-aines.html">En savoir plus →</a></p>
 
-  <h2>Yoga Nidra</h2>
-  <p class="note">Pas de créneau hebdomadaire fixe — le Yoga Nidra se pratique en <strong>séances ponctuelles</strong>, aux dates annoncées sur <a href="yoga-nidra.html">la page dédiée</a>. Une pratique régulière du Nidra passe par les cours de Yoga de l'Énergie ci-dessus, qui s'achèvent souvent dans le même esprit.</p>
+  <p style="margin:.4rem 0 .3rem"><strong>Mercredi — Morat</strong> · Atelier Turmalin, Rte de Fribourg 25</p>
+  <div class="map">
+    <iframe src="https://maps.google.com/maps?q=Atelier%20Turmalin%2C%20Route%20de%20Fribourg%2025%2C%203280%20Morat&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Atelier Turmalin — Rte de Fribourg 25, Morat"></iframe>
+  </div>
+  <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Atelier%20Turmalin%2C%20Route%20de%20Fribourg%2025%2C%203280%20Morat" target="_blank" rel="noopener">Ouvrir dans Google Maps →</a></p>
+
+  <p style="margin:1.4rem 0 .3rem"><strong>Mercredi — Avenches</strong> · Paroisse catholique Avenches-Vully</p>
+  <div class="map">
+    <iframe src="https://maps.google.com/maps?q=Paroisse%20catholique%20Avenches-Vully%2C%201580%20Avenches&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Paroisse catholique Avenches-Vully, Avenches"></iframe>
+  </div>
+  <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Paroisse%20catholique%20Avenches-Vully%2C%201580%20Avenches" target="_blank" rel="noopener">Ouvrir dans Google Maps →</a></p>
+
+  <p class="note">Tarif communiqué à l'inscription — écris à Cornelia pour en savoir plus.</p>
 </article>
 
 <section class="cta-band">
-  <h2>Une question, une place ?</h2>
-  <p>Le premier pas, c'est un simple message.</p>
+  <h2>Envie de t'inscrire ?</h2>
+  <p>Un simple message suffit — dès 5 participant·e·s, le cours s'ouvre.</p>
   <div class="actions">
     <a class="btn btn--wa" id="cta-wa" href="#">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -170,7 +150,7 @@
 
 <script>
   var WA = "41798298986";
-  var waText = "Bonjour Cornelia,%0AJe vous contacte depuis la page Horaires de votre site.%0AJ'aimerais avoir une place à un cours.";
+  var waText = "Bonjour Cornelia,%0AJe vous contacte depuis la page Yoga doux pour les plus %C3%A2g%C3%A9s de votre site.%0AJe souhaiterais m'inscrire.";
   document.getElementById('cta-wa').href = "https://wa.me/" + WA + "?text=" + waText;
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>

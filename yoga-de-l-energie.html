@@ -68,6 +68,10 @@
   /* Placeholder de contenu à fournir */
   .todo{background:#fff7ec;border:1px dashed var(--brass);border-radius:12px;padding:14px 18px;color:var(--brass);font-size:.95rem;margin:1.2rem 0}
 
+  .badge{display:inline-block;font-family:var(--sans);font-weight:800;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;background:var(--forest-2);color:#fff;border-radius:999px;padding:5px 11px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+  .sous-titre{margin-top:1.8rem;display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+  .sous-titre h3{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--forest)}
+
   .cta-band{background:linear-gradient(168deg,var(--dark2),var(--dark1));color:var(--paper);text-align:center;margin-top:40px;padding:clamp(44px,7vw,72px) 22px}
   .cta-band h2{color:var(--paper);font-size:clamp(1.6rem,3.4vw,2.2rem)}
   .cta-band p{color:rgba(242,234,221,.82);margin:.8rem auto 0;max-width:42ch}
@@ -136,6 +140,26 @@
     <iframe src="https://maps.google.com/maps?q=Paroisse%20catholique%20Avenches-Vully%2C%201580%20Avenches&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Paroisse catholique Avenches-Vully, Avenches"></iframe>
   </div>
   <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Paroisse%20catholique%20Avenches-Vully%2C%201580%20Avenches" target="_blank" rel="noopener">Ouvrir dans Google Maps →</a></p>
+
+  <div class="sous-titre">
+    <h3>Nouveau — Yoga doux pour les plus âgés &amp; aide contre la fonte musculaire</h3>
+    <span class="badge">Pré-inscriptions ouvertes</span>
+  </div>
+  <ul class="horaires">
+    <li>
+      <span class="quand">Mercredi · 9h30–11h00</span>
+      <span class="ou">Morat — Atelier Turmalin, Rte de Fribourg 25</span>
+    </li>
+    <li>
+      <span class="quand">Mercredi · 17h30–19h00</span>
+      <span class="ou">Avenches — Paroisse catholique Avenches-Vully</span>
+    </li>
+  </ul>
+  <a class="btn btn--wa" id="cta-wa-doux" href="#" style="margin-top:.6rem">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    S'inscrire au Yoga doux
+  </a>
+  <p style="margin-top:.6rem"><a href="yoga-aines.html">En savoir plus sur le Yoga doux pour les plus âgés →</a></p>
 </article>
 
 <section class="cta-band">
@@ -151,7 +175,7 @@
 </section>
 
 <footer>
-  © <span id="y"></span> Cornelia Althaus · <a href="yoga-de-l-energie.html">Yoga de l'Énergie</a> · <a href="yoga-nidra.html">Yoga Nidra</a> · <a href="yoga-maternite.html">Yoga Maternité</a> · Avenches & Morat<br>
+  © <span id="y"></span> Cornelia Althaus · <a href="yoga-de-l-energie.html">Yoga de l'Énergie</a> · <a href="yoga-nidra.html">Yoga Nidra</a> · <a href="yoga-maternite.html">Yoga Maternité</a> · <a href="yoga-aines.html">Yoga doux</a> · Avenches & Morat<br>
   <a href="https://www.instagram.com/yoga.energie.avenches.lacmorat/" target="_blank" rel="noopener">Instagram @yoga.energie.avenches.lacmorat</a>
   &middot; <a href="https://g.page/r/CXYJlwMKR00zEAI/review" target="_blank" rel="noopener">Laisser un avis Google ★</a>
 </footer>
@@ -160,6 +184,8 @@
   var WA = "41798298986";
   var waText = "Bonjour Cornelia,%0AJe vous contacte depuis la page Yoga de l'Énergie de votre site.%0AJe souhaiterais des informations (et/ou une séance d'essai).";
   document.getElementById('cta-wa').href = "https://wa.me/" + WA + "?text=" + waText;
+  var waTextDoux = "Bonjour Cornelia,%0AJe souhaiterais m'inscrire au Yoga doux pour les plus %C3%A2g%C3%A9s (mercredi Morat ou Avenches).";
+  document.getElementById('cta-wa-doux').href = "https://wa.me/" + WA + "?text=" + waTextDoux;
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
 </body>

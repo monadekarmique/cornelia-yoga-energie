@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Cornelia Althaus — Un chemin, trois pratiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal:#3B23D4; --teal-soft:#6653dd; --paper:#f2eadd; --oat:#e8ddcc;
+    --ink:#3a2c22; --ink-soft:#7a6b5c; --line:rgba(59,35,212,.18);
+    --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  body{ background:#ccc; padding:24px; display:flex; justify-content:center; font-family:var(--sans); }
+
+  .page{
+    width: 595.276pt; height: 841.89pt; /* A4 210x297mm */
+    background:var(--paper); position:relative; overflow:hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    padding: 50pt 52pt;
+    display:flex; flex-direction:column;
+  }
+
+  .mask-logo{ -webkit-mask-image:url('carte-visite-assets/logo-mark.png'); mask-image:url('carte-visite-assets/logo-mark.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+
+  header{ display:flex; align-items:center; gap:10pt; }
+  header .logo{ width:24pt; height:24pt; background-color:var(--teal); flex-shrink:0; }
+  header .name{ font-family:var(--sans); font-weight:700; font-size:11pt; color:var(--teal); }
+
+  .eyebrow{ margin-top:28pt; font-family:var(--sans); font-weight:800; font-size:11pt; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); }
+  h1{ font-family:var(--serif); font-weight:700; font-size:30pt; line-height:1.1; color:var(--ink); margin-top:6pt; }
+  .lead{ font-family:var(--sans); font-size:13pt; line-height:1.5; color:var(--ink-soft); margin-top:12pt; max-width:44ch; }
+
+  .journey{ margin-top:36pt; display:flex; flex-direction:column; position:relative; }
+  .step{ display:flex; gap:20pt; position:relative; padding-bottom:34pt; }
+  .step:last-child{ padding-bottom:0; }
+  .step .rail{ display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:44pt; }
+  .step .num{ width:44pt; height:44pt; border-radius:50%; background:var(--teal); color:#fff; font-family:var(--serif); font-weight:700; font-size:17pt; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .step .connector{ flex:1; width:2pt; background:color-mix(in srgb, var(--teal) 30%, transparent); margin-top:6pt; }
+  .step .body{ padding-top:6pt; }
+  .step .body h2{ font-family:var(--serif); font-weight:700; font-size:16pt; color:var(--ink); }
+  .step .body .tag{ font-family:var(--sans); font-weight:700; font-size:9.5pt; letter-spacing:.05em; text-transform:uppercase; color:var(--teal-soft); margin-top:2pt; }
+  .step .body p{ font-family:var(--sans); font-size:11.5pt; line-height:1.55; color:var(--ink-soft); margin-top:8pt; max-width:56ch; }
+
+  .cycle{ margin-top:auto; background:linear-gradient(168deg,#5844da,var(--teal)); border-radius:16pt; padding:22pt 26pt; display:flex; align-items:center; gap:18pt; }
+  .cycle .icon{ width:34pt; height:34pt; background-color:#fff; flex-shrink:0; }
+  .cycle p{ font-family:var(--sans); font-size:11pt; line-height:1.5; color:#fff; }
+  .cycle p b{ font-family:var(--serif); font-weight:700; font-size:12.5pt; }
+
+  footer{ margin-top:20pt; text-align:center; font-family:var(--sans); font-size:8.5pt; color:var(--ink-soft); }
+
+  @media print{ body{ background:#fff; padding:0; } .page{ box-shadow:none; } }
+  @page{ size: A4; margin:0; }
+</style>
+</head>
+<body>
+
+  <section class="page">
+    <header>
+      <div class="logo mask-logo"></div>
+      <span class="name">Cornelia Althaus</span>
+    </header>
+
+    <p class="eyebrow">Sa pratique</p>
+    <h1>Un chemin,<br>trois pratiques</h1>
+    <p class="lead">Trois formes du même travail — pas trois options séparées, mais une profondeur croissante : du mouvement vers l'immobilité, du corps vers la conscience.</p>
+
+    <div class="journey">
+      <div class="step">
+        <div class="rail"><div class="num">1</div><div class="connector"></div></div>
+        <div class="body">
+          <p class="tag">Le socle — chaque semaine</p>
+          <h2>Yoga de l'Énergie</h2>
+          <p>La pratique de fond, mardi et mercredi à Morat et Avenches. On bouge, on ressent, on s'ancre dans le corps — à son rythme, sans souplesse requise. Une lecture saisonnière : à chaque saison son élément, son chakra, ses méridiens.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="rail"><div class="num">2</div><div class="connector"></div></div>
+        <div class="body">
+          <p class="tag">Une transition de vie</p>
+          <h2>Yoga Maternité</h2>
+          <p>La même pratique, mise au service d'un passage précis&nbsp;: la grossesse et la préparation à la naissance. Un moment pour soi et pour l'enfant à venir, dans un groupe bienveillant.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="rail"><div class="num">3</div></div>
+        <div class="body">
+          <p class="tag">Le point d'orgue de la saison</p>
+          <h2>Yoga Nidra</h2>
+          <p>Là où le corps n'a plus besoin de bouger pour se transformer — juste se relâcher. Séance ponctuelle, au changement de saisons&nbsp;: le dernier cours d'un cycle de Yoga de l'Énergie, pour libérer les états de conscience traversés.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cycle">
+      <div class="icon mask-logo"></div>
+      <p><b>Le cycle d'une saison&nbsp;:</b><br>cours hebdomadaires (Yoga de l'Énergie) → Yoga Nidra de clôture → nouvelle saison.</p>
+    </div>
+
+    <footer>corneliaenseignanteyogaavenches.com — Avenches &amp; Morat</footer>
+  </section>
+
+</body>
+</html>
