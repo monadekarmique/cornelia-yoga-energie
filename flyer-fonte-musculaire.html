@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Flyer — Fonte musculaire des jambes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal:#3B23D4; --teal-soft:#6653dd; --paper:#f2eadd; --oat:#e8ddcc;
+    --ink:#3a2c22; --ink-soft:#7a6b5c; --line:rgba(59,35,212,.18);
+    --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  body{ background:#ccc; padding:24px; display:flex; justify-content:center; font-family:var(--sans); }
+
+  .sheet{
+    width: 419.528pt; height: 595.276pt; /* A5 148x210mm */
+    background:var(--paper); position:relative; overflow:hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+    display:flex; flex-direction:column;
+  }
+
+  .mask-logo{ -webkit-mask-image:url('carte-visite-assets/logo-mark.png'); mask-image:url('carte-visite-assets/logo-mark.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+  .mask-qr{ -webkit-mask-image:url('carte-visite-assets/qr-bio.png'); mask-image:url('carte-visite-assets/qr-bio.png'); -webkit-mask-size:contain; mask-size:contain; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; }
+
+  .top{ padding:22pt 26pt 0; }
+  .headrow{ display:flex; align-items:center; gap:16pt; }
+  .logo{ flex-shrink:0; width:52pt; height:52pt; background-color:var(--teal); }
+  .eyebrow{ font-family:var(--sans); font-weight:800; font-size:11pt; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); }
+  h1{ font-family:var(--serif); font-weight:700; font-size:22pt; line-height:1.1; color:var(--ink); margin-top:3pt; }
+  .lead{ font-family:var(--sans); font-size:12.5pt; line-height:1.42; color:var(--ink-soft); margin-top:11pt; max-width:38ch; }
+
+  .points{ padding:15pt 26pt 0; display:flex; flex-direction:column; gap:9pt; flex-shrink:0; }
+  .point{ display:flex; align-items:flex-start; gap:9pt; font-size:11.5pt; line-height:1.32; color:var(--ink); }
+  .point .dot{ flex-shrink:0; width:7pt; height:7pt; border-radius:50%; background:var(--teal); margin-top:6pt; }
+  .point strong{ color:var(--teal); }
+
+  .signature{ margin:18pt 26pt 0; display:flex; align-items:center; gap:13pt; flex-shrink:0; }
+  .signature .portrait{ flex-shrink:0; width:46pt; height:46pt; border-radius:50%; object-fit:cover; border:2pt solid #fff; box-shadow:0 2pt 8pt rgba(0,0,0,.15); }
+  .signature .name{ font-family:var(--serif); font-weight:700; font-size:12pt; color:var(--ink); }
+  .signature .role{ font-family:var(--sans); font-size:9pt; line-height:1.36; color:var(--ink-soft); margin-top:2pt; max-width:56ch; }
+
+  .schedule{ margin:18pt 26pt 0; display:flex; flex-direction:column; gap:9pt; flex-shrink:0; }
+  .chip{ background:#fff; border:1.3pt solid var(--teal); border-radius:12pt; padding:7pt 16pt; }
+  .chip-row{ display:flex; align-items:baseline; justify-content:space-between; gap:10pt; }
+  .chip b{ font-family:var(--sans); font-weight:800; font-size:11.5pt; color:var(--teal); }
+  .chip .course{ font-family:var(--sans); font-weight:700; font-size:9.5pt; color:var(--teal-soft); white-space:nowrap; }
+  .chip .loc{ display:block; font-family:var(--sans); font-weight:500; font-size:9.5pt; color:var(--ink-soft); margin-top:2pt; }
+
+  .cta{ margin-top:auto; flex-shrink:0; background:linear-gradient(168deg,#5844da,var(--teal)); color:#fff; padding:14pt 26pt 16pt; display:flex; align-items:center; gap:16pt; }
+  .cta .txt{ flex:1; }
+  .cta .txt p.h{ font-family:var(--serif); font-weight:700; font-size:13pt; line-height:1.16; }
+  .cta .txt p.tel{ font-family:var(--sans); font-weight:800; font-size:18pt; letter-spacing:.02em; margin-top:5pt; }
+  .cta .txt p.sub{ font-family:var(--sans); font-weight:500; font-size:8.5pt; color:rgba(255,255,255,.82); margin-top:4pt; }
+  .cta .qr{ flex-shrink:0; width:58pt; height:58pt; background:#fff; border-radius:9pt; display:flex; align-items:center; justify-content:center; }
+  .cta .qr .mask-qr{ width:47pt; height:47pt; background-color:var(--teal); }
+  .cta .qr-cap{ font-size:6.4pt; text-align:center; color:rgba(255,255,255,.85); margin-top:3pt; }
+
+  .foot{ flex-shrink:0; background:var(--ink); color:rgba(242,234,221,.9); font-size:10.5pt; text-align:center; padding:12pt 20pt; }
+  .foot b{ color:#fff; }
+
+  @media print{ body{ background:#fff; padding:0; } .sheet{ box-shadow:none; } }
+  @page{ size: 148mm 210mm; margin:0; }
+</style>
+</head>
+<body>
+
+  <section class="sheet">
+    <div class="top">
+      <p class="eyebrow">Comprendre &amp; agir</p>
+      <h1>Vos muscles s'affaiblissent avec le temps ?</h1>
+      <p class="lead">L'inactivité fait fondre les muscles — le yoga doux peut aider à ralentir ce phénomène, à votre rythme.</p>
+    </div>
+
+    <div class="points">
+      <div class="point"><span class="dot"></span><span>Marcher moins, c'est perdre progressivement <strong>force et volume musculaire</strong> — un cycle qui peut être ralenti puis stoppé.</span></div>
+      <div class="point"><span class="dot"></span><span>Le yoga doux réhabitue le corps au mouvement, <strong>sans souplesse requise</strong>, assis ou debout.</span></div>
+    </div>
+
+    <div class="signature">
+      <img class="portrait" src="carte-visite-assets/portrait-circle.jpg" alt="Cornelia Althaus">
+      <div>
+        <p class="name">Cornelia Althaus</p>
+        <p class="role">Elle a elle-même traversé une spondylarthrite et une sclérose — et s'en est reconstruite par la voie du Yoga de l'énergie.<br>Yoga de l'énergie · Yoga Maternité · Yoga Nidra · Membre du Cercle de Lumière Suisse Romande</p>
+      </div>
+    </div>
+
+    <div class="schedule">
+      <div class="chip"><div class="chip-row"><b>🗓 Mercredi · 9h30–11h00</b><span class="course">Yoga doux</span></div><span class="loc">Morat — Atelier Turmalin</span></div>
+      <div class="chip"><div class="chip-row"><b>🗓 Mercredi · 17h30–19h00</b><span class="course">Yoga doux</span></div><span class="loc">Avenches — Salle de la Paroisse catholique</span></div>
+    </div>
+
+    <div class="cta">
+      <div class="txt">
+        <p class="h">Envie d'essayer ?<br>Un simple message suffit.</p>
+        <p class="tel">079 829 89 86</p>
+        <p class="sub">Cornelia Althaus · cornelia.althaus@hotmail.com</p>
+      </div>
+      <div>
+        <div class="qr"><div class="mask-qr"></div></div>
+        <p class="qr-cap">Scanner pour<br>voir mon site</p>
+      </div>
+    </div>
+    <div class="foot"><b>corneliaenseignanteyogaavenches.com</b> — comprendre la fonte musculaire</div>
+  </section>
+
+</body>
+</html>

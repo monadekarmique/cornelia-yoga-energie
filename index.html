@@ -70,6 +70,8 @@
   .hdr .btn--wa{flex:none}
 
   /* Hero plein cadre */
+  .hero-badge{position:absolute;top:14px;right:14px;z-index:6;width:min(232px,46vw)}
+  .hero-badge img{width:100%;height:auto;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,.45))}
   .hero{position:relative;color:#fff;min-height:clamp(440px,76vh,640px);display:flex;align-items:flex-end}
   .hero::before{content:"";position:absolute;inset:0;background:url(assets/hero.jpg) center 38%/cover}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(22,15,9,.92),rgba(22,15,9,.60) 50%,rgba(22,15,9,.34))}
@@ -144,6 +146,7 @@
 </header>
 
 <section class="hero">
+  <a class="hero-badge" href="https://svlbh.com/certifiee/cornelia" target="_blank" rel="noopener" aria-label="Membre du Cercle de Lumière Suisse Romande — certifiée SVLBH MyShamanFamily"><img src="assets/badge-svlbh.svg" alt="Membre du Cercle de Lumière Suisse Romande — certifiée SVLBH MyShamanFamily" loading="lazy" /></a>
   <div class="wrap">
     <p class="hero-credential">Enseignante diplômée de l'École de Yoga de l'Énergie d'Évian depuis 2011</p>
     <h1>Retrouver son équilibre avec l'énergie du Lac de Morat qui me traverse</h1>
