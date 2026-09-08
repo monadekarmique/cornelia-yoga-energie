@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Lettre à la Commune d'Avenches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#faf7f2; --ink:#2b2620; --ink-soft:#5c5348; --line:#ddd4c4;
+    --teal:#3B23D4; --teal-soft:#6653dd;
+    --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  body{ background:#dcd6c9; padding:36px 20px; display:flex; justify-content:center; font-family:var(--sans); }
+
+  .page{
+    width:210mm; min-height:297mm; background:var(--paper); color:var(--ink);
+    padding:24mm 22mm 20mm; box-shadow:0 10px 34px rgba(0,0,0,.22);
+    display:flex; flex-direction:column;
+  }
+
+  .letterhead{ display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:16pt; border-bottom:1.5pt solid var(--teal); }
+  .letterhead .brand{ font-family:var(--serif); font-weight:700; font-size:19pt; color:var(--teal); }
+  .letterhead .brand small{ display:block; font-family:var(--sans); font-weight:500; font-size:9.5pt; color:var(--ink-soft); margin-top:3pt; letter-spacing:.01em; }
+  .letterhead .coord{ text-align:right; font-size:9.5pt; line-height:1.55; color:var(--ink-soft); }
+
+  .meta{ display:flex; justify-content:space-between; margin-top:26pt; font-size:10pt; color:var(--ink-soft); }
+
+  .destinataire{ margin-top:30pt; font-size:10.5pt; line-height:1.55; }
+  .destinataire b{ color:var(--ink); }
+
+  .objet{ margin-top:26pt; font-size:11pt; }
+  .objet b{ color:var(--teal); }
+
+  .corps{ margin-top:20pt; font-size:11pt; line-height:1.62; color:var(--ink); }
+  .corps p{ margin-top:13pt; }
+  .corps p:first-child{ margin-top:0; }
+
+  .liste{ margin-top:6pt; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:7pt; }
+  .liste li{ position:relative; padding-left:17pt; font-size:10.8pt; line-height:1.5; }
+  .liste li::before{ content:''; position:absolute; left:0; top:6pt; width:6pt; height:6pt; border-radius:50%; background:var(--teal); }
+  .liste b{ color:var(--teal); }
+
+  .questions{ margin-top:8pt; padding-left:0; list-style:none; counter-reset:q; display:flex; flex-direction:column; gap:10pt; }
+  .questions li{ counter-increment:q; position:relative; padding-left:31pt; font-size:10.8pt; line-height:1.5; }
+  .questions li::before{ content:counter(q); position:absolute; left:0; top:0; width:19pt; height:19pt; line-height:17pt; text-align:center; border-radius:50%; border:1.3pt solid var(--teal); color:var(--teal); font-family:var(--sans); font-weight:700; font-size:9.5pt; }
+
+  .signature{ margin-top:32pt; font-size:10.8pt; line-height:1.5; }
+  .signature .nom{ font-family:var(--serif); font-weight:700; font-size:12.5pt; color:var(--teal); margin-top:26pt; }
+
+  .foot{ margin-top:auto; padding-top:22pt; border-top:.75pt solid var(--line); font-size:8.5pt; color:var(--ink-soft); text-align:center; }
+
+  @media print{ body{ background:#fff; padding:0; } .page{ box-shadow:none; min-height:0; } }
+  @page{ size:A4; margin:0; }
+</style>
+</head>
+<body>
+
+  <section class="page">
+    <div class="letterhead">
+      <div class="brand">Cornelia Althaus
+        <small>Enseignante de Yoga de l'Énergie · École de Yoga de l'Énergie d'Évian, diplômée 2011</small>
+      </div>
+      <div class="coord">
+        Le Chandon 4<br>1580 Avenches<br>079 829 89 86<br>cornelia.althaus@hotmail.com<br>corneliaenseignanteyogaavenches.com
+      </div>
+    </div>
+
+    <div class="meta">
+      <span>Avenches, le <span id="date-jour"></span></span>
+      <span></span>
+    </div>
+
+    <div class="objet">
+      <b>Objet :</b> Présentation des cours de yoga de Cornelia Althaus et demande de référencement sur le site de la commune
+    </div>
+
+    <div class="corps">
+      <p>Madame, Monsieur,</p>
+
+      <p>Enseignante de Yoga de l'Énergie diplômée depuis 2011 (École de Yoga de l'Énergie d'Évian) et forte de <b style="color:var(--teal)">15 ans d'expérience</b> dans ce domaine, j'anime plusieurs cours de yoga à Avenches et à Morat, ouverts à toute la population :</p>
+
+      <ul class="liste">
+        <li><b>Yoga de l'Énergie</b> — le mardi à Morat et le mercredi soir à Avenches (Salle paroissiale catholique, Av. de Jomini 8), ouvert à tous les niveaux.</li>
+        <li><b>Yoga Nidra</b> — relaxation profonde, « sommeil yogique ».</li>
+        <li><b>Yoga Maternité</b> — le mardi à Morat, respiration et préparation en douceur à la naissance.</li>
+      </ul>
+
+      <p>Mon fer de lance pour 2026 est un nouveau cours, le <b style="color:var(--teal)">Yoga doux pour les aînés</b> : une pratique en douceur, sans souplesse requise, assise ou debout, pensée pour réhabituer le corps au mouvement et ralentir la fonte musculaire liée à l'âge et à l'inactivité. J'ouvre pour l'instant <b style="color:var(--teal)">deux créneaux</b>, chacun le mercredi :</p>
+
+      <ul class="liste">
+        <li><b>Morat</b> — mercredi 9h30–11h00, Atelier Turmalin.</li>
+        <li><b>Avenches</b> — mercredi 17h30–19h00, Salle paroissiale catholique, Av. de Jomini 8.</li>
+      </ul>
+
+      <p>Chaque cours débute dès 5 participant·e·s inscrit·e·s sur le créneau.</p>
+
+      <p>Je donne d'ores et déjà un cours chaque semaine, le mercredi, à la Salle paroissiale catholique d'Avenches (Av. de Jomini 8). Par la présente, je souhaite vous demander si je peux être <b style="color:var(--teal)">référencée sur le site de la commune</b> comme prestataire de cours de Yoga de l'Énergie, en tant qu'enseignante diplômée forte de 15 ans d'expérience dans ce domaine.</p>
+
+      <p>Je me tiens bien volontiers à votre disposition pour toute information complémentaire, ou pour envisager ensemble comment faire connaître ce nouveau cours au plus grand nombre.</p>
+
+      <p>Je vous remercie de l'attention portée à cette présentation et vous prie d'agréer, Madame, Monsieur, mes salutations les meilleures.</p>
+    </div>
+
+    <div class="signature">
+      <div class="nom">Cornelia Althaus</div>
+    </div>
+
+    <div class="foot">corneliaenseignanteyogaavenches.com — Yoga de l'Énergie · Yoga doux · Yoga Maternité · Avenches &amp; Morat</div>
+  </section>
+
+  <script>
+    document.getElementById('date-jour').textContent = new Date().toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' });
+  </script>
+
+</body>
+</html>

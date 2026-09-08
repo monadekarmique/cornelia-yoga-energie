@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Lettre à la Commune de Morat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --paper:#faf7f2; --ink:#2b2620; --ink-soft:#5c5348; --line:#ddd4c4;
+    --teal:#3B23D4; --teal-soft:#6653dd;
+    --serif:'Fraunces',Georgia,serif; --sans:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+  }
+  body{ background:#dcd6c9; padding:36px 20px; display:flex; flex-direction:column; align-items:center; gap:26px; font-family:var(--sans); }
+
+  .page{
+    width:210mm; min-height:297mm; background:var(--paper); color:var(--ink);
+    padding:15mm 20mm 12mm; box-shadow:0 10px 34px rgba(0,0,0,.22);
+    display:flex; flex-direction:column;
+  }
+
+  .letterhead{ display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:16pt; border-bottom:1.5pt solid var(--teal); }
+  .letterhead .brand{ font-family:var(--serif); font-weight:700; font-size:19pt; color:var(--teal); }
+  .letterhead .brand small{ display:block; font-family:var(--sans); font-weight:500; font-size:9.5pt; color:var(--ink-soft); margin-top:3pt; letter-spacing:.01em; }
+  .letterhead .coord{ text-align:right; font-size:9.5pt; line-height:1.55; color:var(--ink-soft); }
+
+  .meta{ display:flex; justify-content:space-between; margin-top:18pt; font-size:9.5pt; color:var(--ink-soft); }
+
+  .destinataire{ margin-top:15pt; font-size:10pt; line-height:1.45; }
+  .destinataire b{ color:var(--ink); }
+
+  .objet{ margin-top:16pt; font-size:10.5pt; }
+  .objet b{ color:var(--teal); }
+
+  .corps{ margin-top:11pt; font-size:9.7pt; line-height:1.38; color:var(--ink); }
+  .corps p{ margin-top:8pt; }
+  .corps p:first-child{ margin-top:0; }
+  .corps .cite{ color:var(--teal); font-weight:600; }
+
+  .liste{ margin-top:6pt; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:5pt; }
+  .liste li{ position:relative; padding-left:15pt; font-size:9.6pt; line-height:1.38; }
+  .liste li::before{ content:''; position:absolute; left:0; top:5.5pt; width:5.5pt; height:5.5pt; border-radius:50%; background:var(--teal); }
+  .liste b{ color:var(--teal); }
+
+  .encadre{ margin-top:10pt; border-left:2.5pt solid var(--teal); background:#f2eee6; padding:9pt 12pt; font-size:9.3pt; line-height:1.4; color:var(--ink-soft); }
+  .encadre b{ color:var(--teal); }
+
+  .signature{ margin-top:10pt; font-size:10.1pt; line-height:1.45; }
+  .signature .nom{ font-family:var(--serif); font-weight:700; font-size:12pt; color:var(--teal); margin-top:14pt; }
+
+  .foot{ margin-top:auto; padding-top:10pt; border-top:.75pt solid var(--line); font-size:8pt; color:var(--ink-soft); text-align:center; }
+
+  @media print{
+    body{ background:#fff; padding:0; gap:0; }
+    .page{ box-shadow:none; min-height:0; page-break-after:always; }
+    .page:last-of-type{ page-break-after:auto; }
+  }
+  @page{ size:A4; margin:0; }
+</style>
+</head>
+<body>
+
+  <section class="page">
+    <div class="letterhead">
+      <div class="brand">Cornelia Althaus
+        <small>Enseignante de Yoga de l'Énergie · École de Yoga de l'Énergie d'Évian, diplômée 2011</small>
+      </div>
+      <div class="coord">
+        Le Chandon 4<br>1580 Avenches<br>079 829 89 86<br>cornelia.althaus@hotmail.com<br>corneliaenseignanteyogaavenches.com
+      </div>
+    </div>
+
+    <div class="meta">
+      <span>Avenches, le <span class="date-jour"></span></span>
+      <span></span>
+    </div>
+
+    <div class="destinataire">
+      <b>Commune de Morat</b><br>
+      Département Société<br>
+      Rathausgasse 17, Case postale 326<br>
+      3280 Morat
+    </div>
+
+    <div class="objet">
+      <b>Objet :</b> Yoga doux pour les aînés à Morat — une offre de promotion de la santé à l'appui du concept vieillesse Senior+
+    </div>
+
+    <div class="corps">
+      <p>Madame, Monsieur,</p>
+
+      <p>J'ai lu avec beaucoup d'intérêt le concept vieillesse <span class="cite">Senior+</span> de la commune de Morat. Enseignante de Yoga de l'Énergie diplômée depuis 2011 (École d'Évian) et forte de 15 ans d'expérience, j'anime à Morat le Yoga de l'Énergie, le Yoga Maternité et le Yoga Nidra. Je vous présente ici une offre qui rejoint directement plusieurs de vos champs d'action.</p>
+
+      <p>Mon fer de lance pour 2026 est un nouveau cours, le <b class="cite">Yoga doux pour les aînés</b> : une pratique en douceur, assise ou debout, <b>sans souplesse ni condition physique requise</b>. Son objectif est concret : réhabituer le corps au mouvement et <b>ralentir la fonte musculaire</b> liée à l'âge et à l'inactivité — cette perte de force des jambes qui fragilise l'équilibre, augmente le risque de chute et entame l'autonomie.</p>
+
+      <p>J'ouvre pour l'instant <b class="cite">deux créneaux</b>, dont un à Morat. Le cours débute dès 5 participant·e·s inscrit·e·s :</p>
+
+      <ul class="liste">
+        <li><b>Morat</b> — mercredi 9h30–11h00, Atelier Turmalin, Rte de Fribourg 25.</li>
+        <li><b>Avenches</b> — mercredi 17h30–19h00, Salle paroissiale catholique, Av. de Jomini 8.</li>
+      </ul>
+
+      <div class="encadre">
+        Cette offre rejoint deux de vos champs d'action, dont les mesures démarrent en <b>2026</b> : <b>« Promotion de la santé »</b> — soutenir, avec d'autres organisations, les offres de prévention — et <b>« Bénévolat »</b>, qui prévoit de « soutenir et encourager les personnes […] qui créent de telles offres » dans les loisirs, le sport et les rencontres. Elle sert aussi deux de vos objectifs : que les aîné·e·s <b>soient informé·e·s des mesures de promotion de la santé et les utilisent</b>, et <b>vivent le plus longtemps possible de manière autonome</b>.
+      </div>
+
+      <p>Sur les 9 713 habitant·e·s de Morat, 2 188 ont entre 50 et 64 ans — 22,5 % qui atteindront l'âge de la retraite ces prochaines années. C'est exactement le public de ce cours, avant que la perte de mobilité ne s'installe. Je me permets dès lors de vous adresser deux demandes :</p>
+
+      <ul class="liste">
+        <li>Que ce cours puisse figurer dans la <b>brochure d'information des offres pour les seniors</b> prévue par votre concept, ainsi que sur les canaux de communication de la commune.</li>
+        <li>Que mon site <b>corneliaenseignanteyogaavenches.com</b> puisse y être référencé comme source d'information pour les habitant·e·s intéressé·e·s par le yoga doux et le maintien de la mobilité.</li>
+      </ul>
+
+      <p>Je serais très heureuse d'en discuter avec vous et reste volontiers à disposition. En vous remerciant de l'attention portée à cette démarche, je vous prie d'agréer, Madame, Monsieur, mes salutations les meilleures.</p>
+    </div>
+
+    <div class="signature">
+      <div class="nom">Cornelia Althaus</div>
+    </div>
+
+    <div class="foot">corneliaenseignanteyogaavenches.com — Yoga de l'Énergie · Yoga doux · Yoga Maternité · Yoga Nidra · Avenches &amp; Morat</div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.date-jour').forEach(function (el) {
+      el.textContent = new Date().toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' });
+    });
+  </script>
+
+</body>
+</html>
