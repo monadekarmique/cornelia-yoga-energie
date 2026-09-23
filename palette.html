@@ -222,15 +222,18 @@
     document.getElementById('out').value='';
   });
 
-  // Appliquer à mon site (live) — écrit la palette dans Supabase ; le site la relit au chargement
+  // Appliquer à mon site (live) — écrit via l'edge function GATÉE PAR TOKEN (#23, carte f1e39e87,
+  // DEC Patrick 23.09 « Fermer anon + basculer les 4 sur l'Edge ») : seul le porteur du write_token
+  // de CE slug peut écrire. Le site relit la palette au chargement (lecture anon inchangée).
+  var WRITE_TOKEN="646a5935b2af69f16937738f863c04475899df2cd320bd1d5877493c7c1ecb3e";
   var SBK="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFvZG56dHFzYXdzb2ZpbWJzZmhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NTQ1MTEsImV4cCI6MjA5MjQzMDUxMX0.gXOfYw6BjImESFcmrmkRaPsNGkTMEuKiWovEgqMuqIs";
   document.getElementById('apply-site').addEventListener('click', function(){
     var pal={};
     ALL_ROLES.forEach(function(r){ pal[r.k.replace(/^--/,'')] = state[r.k]; });
     function flash(t){toast.textContent=t;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show');toast.textContent='Palette copiée ✓';},2400);}
-    fetch("https://qodnztqsawsofimbsfhb.supabase.co/rest/v1/site_palette?on_conflict=slug",{method:"POST",
-      headers:{apikey:SBK,Authorization:"Bearer "+SBK,"Content-Type":"application/json","Prefer":"resolution=merge-duplicates"},
-      body:JSON.stringify({slug:"cornelia-althaus",palette:pal})})
+    fetch("https://qodnztqsawsofimbsfhb.supabase.co/functions/v1/site-palette-write",{method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({slug:"cornelia-althaus",palette:pal,token:WRITE_TOKEN})})
      .then(function(r){flash(r.ok?"Appliqué à ton site ✓ (recharge le site)":"Erreur "+r.status);})
      .catch(function(){flash("Erreur réseau");});
   });
